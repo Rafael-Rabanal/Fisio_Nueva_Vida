@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Registrar Paciente</title>
+    <link rel="stylesheet" href="Styles/RegistrarPaciente.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span>Fisio Nueva Vida</span>
+            </div>
+        </div>
+        <nav class="nav-center">
+            <a href="Index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="pacientes.html" class="nav-item active"><i data-lucide="users"></i> Pacientes</a>
+            <a href="Agenda.html" class="nav-item"><i data-lucide="calendar"></i> Agenda</a>
+            <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+            <a href="Pagos.html" class="nav-item"><i data-lucide="credit-card"></i> Pagos</a>
+            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn-notification">
+                <i data-lucide="bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="user-profile-wrapper">
+                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                <label for="user-menu-toggle" class="user-profile dropdown">
+                    <div class="user-info">
+                        <span class="username">Admin Usuario</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </label>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Tamaño de Letra</span>
+                        <div class="font-size-options">
+                            <button type="button" class="btn-font-size">A-</button>
+                            <button type="button" class="btn-font-size active">A</button>
+                            <button type="button" class="btn-font-size">A+</button>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Idioma</span>
+                        <button type="button" class="btn-lang">
+                            <i data-lucide="languages" class="lang-icon"></i>
+                            <span>Switch to English</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Aspecto</span>
+                        <label for="dark-mode-toggle" class="btn-dark-mode">
+                            <i data-lucide="moon" class="dark-mode-icon"></i>
+                            <span class="dark-mode-text-span">Modo Oscuro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <section class="page-header">
+            <div class="header-title">
+                <h1>Registrar Nuevo Paciente</h1>
+                <p>Complete la información detallada para dar de alta al paciente en el sistema.</p>
+            </div>
+            <div class="header-actions">
+                <button type="button" class="btn-outline-cancel" onclick="window.location.href='pacientes.html'"><i data-lucide="x"></i> Cancelar</button>
+                
+                <button type="submit" form="form-registro" class="btn-primary-save"><i data-lucide="save"></i> Guardar Paciente</button>
+            </div>
+        </section>
+
+        <form id="form-registro" class="form-layout-grid" onsubmit="event.preventDefault(); window.location.href='pacientes.html';">
+            
+            <div class="form-main-column">
+                
+                <div class="form-card">
+                    <div class="card-header-title">
+                        <i data-lucide="user"></i>
+                        <h2>Datos Personales</h2>
+                    </div>
+                    <div class="form-row row-2">
+                        <div class="form-group">
+                            <label>Nombre Completo *</label>
+                            <input type="text" placeholder="Ej. Juan Pérez García" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Documento de Identidad (DNI/NIE) *</label>
+                            <input type="text" placeholder="00000000X" required>
+                        </div>
+                    </div>
+                    <div class="form-row row-2">
+                        <div class="form-group">
+                            <label>Fecha de Nacimiento *</label>
+                            <div class="input-icon-wrapper">
+                                <i data-lucide="calendar" class="input-inner-icon"></i>
+                                <input type="text" placeholder="Seleccione fecha" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Género</label>
+                            <select>
+                                <option value="" disabled selected hidden></option>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header-title">
+                        <i data-lucide="phone"></i>
+                        <h2>Información de Contacto</h2>
+                    </div>
+                    <div class="form-row row-2">
+                        <div class="form-group">
+                            <label>Teléfono Móvil *</label>
+                            <div class="input-icon-wrapper">
+                                <i data-lucide="phone" class="input-inner-icon"></i>
+                                <input type="tel" placeholder="+34 600 000 000" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <div class="input-icon-wrapper">
+                                <i data-lucide="mail" class="input-inner-icon"></i>
+                                <input type="email" placeholder="usuario@ejemplo.com">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Dirección de Domicilio</label>
+                            <div class="input-icon-wrapper">
+                                <i data-lucide="map-pin" class="input-inner-icon"></i>
+                                <input type="text" placeholder="Calle, Número, Piso, Puerta">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row row-2">
+                        <div class="form-group">
+                            <label>Ciudad</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Código Postal</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header-title">
+                        <i data-lucide="file-text"></i>
+                        <h2>Otros Datos</h2>
+                    </div>
+                    <div class="form-row row-2">
+                        <div class="form-group">
+                            <label>Ocupación / Profesión</label>
+                            <input type="text" placeholder="Ej. Oficinista, Deportista...">
+                        </div>
+                        <div class="form-group">
+                            <label>Referido por</label>
+                            <input type="text" placeholder="Nombre del médico o paciente">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-sidebar-column">
+                
+                <div class="form-card profile-photo-card">
+                    <div class="avatar-placeholder-circle">
+                        <i data-lucide="user" class="huge-user-icon"></i>
+                    </div>
+                    <h3>Foto de Perfil</h3>
+                    <p>Haz clic para subir o capturar una foto del paciente.</p>
+                    <button type="button" class="btn-subir-img">Subir Imagen</button>
+                </div>
+
+                <div class="form-card evaluation-card">
+                    <div class="card-header-title">
+                        <i data-lucide="activity"></i>
+                        <h2>Evaluación Clínica Inicial</h2>
+                    </div>
+                    
+                    <div class="accordion-item active">
+                        <div class="accordion-header">
+                            <div class="accordion-title-left">
+                                <i data-lucide="alert-circle" class="icon-alert"></i>
+                                <span>Alergias y Contraindicaciones</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <textarea placeholder="Especifique alergias a materiales (látex), medicamentos o condiciones físicas relevantes..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-title-left">
+                                <i data-lucide="history" class="icon-history"></i>
+                                <span>Antecedentes Médicos Relevantes</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <textarea placeholder="Historial de cirugías, fracturas o patologías previas..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="card-header-title">
+                        <i data-lucide="file-text"></i>
+                        <h2>Observaciones</h2>
+                    </div>
+                    <div class="textarea-group">
+                        <textarea placeholder="Observaciones internas sobre la facturación o gestión del paciente..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </main>
+
+    <footer class="fixed-footer">
+        <div class="footer-left">
+            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+        </div>
+        <div class="footer-center">
+            <p class="copyright">© 2026 Sistema de Gestión Fisio Nueva Vida v1.0</p>
+        </div>
+        <div class="footer-right">
+            <div class="footer-policies">
+                <a href="#">Términos de servicio</a>
+                <span class="bullet-separator">•</span>
+                <a href="#">Soporte Técnico</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar Iconos de Lucide
+        lucide.createIcons();
+
+        // Lógica para abrir/cerrar acordeones
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

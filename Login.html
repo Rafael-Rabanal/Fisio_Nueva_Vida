@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso al Sistema - Fisio Nueva Vida</title>
+    <link rel="stylesheet" href="Styles/login.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <main class="login-container">
+        <div class="login-card">
+            <header class="login-header">
+                <div class="logo-icon">
+                    <i data-lucide="activity"></i>
+                </div>
+                <h1>Fisio Nueva Vida</h1>
+                <h2>Acceso al Sistema</h2>
+                <p class="subtitle">Ingrese sus credenciales para gestionar la clínica</p>
+            </header>
+
+            <div class="error-banner">
+                <i data-lucide="alert-circle" class="error-icon"></i>
+                <p>Usuario o contraseña incorrectos. Por favor, intente de nuevo.</p>
+            </div>
+
+            <form class="login-form">
+                <div class="input-group">
+                    <label for="username">Correo Electrónico o Usuario</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="user" class="field-icon"></i>
+                        <input type="text" id="username" value="ejemplo@fisio.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="lock" class="field-icon"></i>
+                        <input type="password" id="password" value="password123" required>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidó su contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn-submit">Iniciar sesión</button>
+            </form>
+
+            <footer class="card-footer">
+                <p>¿No tiene acceso? <a href="#">Contacte al administrador</a></p>
+            </footer>
+        </div>
+
+        <footer class="global-footer">
+            <p>© 2026 Sistema de Gestión Fisio Nueva Vida v1.0</p>
+            <div class="footer-links">
+                <a href="#">Términos de servicio</a>
+                <span class="divider">•</span>
+                <a href="#">Soporte Técnico</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Inicializar los iconos de Lucide
+        lucide.createIcons();
+
+        // Seleccionar el formulario de login
+        const loginForm = document.querySelector('.login-form');
+
+        loginForm.addEventListener('submit', function(event) {
+            // Evita que la página se recargue automáticamente
+            event.preventDefault(); 
+
+            // Obtener los valores ingresados (opcional, por si quieres validar algo en el futuro)
+            const usuario = document.getElementById('username').value;
+            const contrasena = document.getElementById('password').value;
+
+            // Redirigir a la página del Dashboard (Index.html)
+            // NOTA: Asegúrate de que el archivo del Dashboard se llame exactamente "Index.html"
+            window.location.href = "Index.html"; 
+        });
+    </script>
+</body>
+</html>

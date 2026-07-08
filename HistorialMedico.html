@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Historial Médico</title>
+    <link class="cssdeck" rel="stylesheet" href="Styles/HistorialMedico.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span>Fisio Nueva Vida</span>
+            </div>
+        </div>
+        <nav class="nav-center">
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="pacientes.html" class="nav-item active"><i data-lucide="users"></i> Pacientes</a>
+            <a href="Agenda.html" class="nav-item"><i data-lucide="calendar"></i> Agenda</a>
+            <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+            <a href="Pagos.html" class="nav-item"><i data-lucide="credit-card"></i> Pagos</a>
+            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn-notification">
+                <i data-lucide="bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="user-profile-wrapper">
+                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                <label for="user-menu-toggle" class="user-profile dropdown">
+                    <div class="user-info">
+                        <span class="username">Admin Usuario</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </label>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Tamaño de Letra</span>
+                        <div class="font-size-options">
+                            <button type="button" class="btn-font-size">A-</button>
+                            <button type="button" class="btn-font-size active">A</button>
+                            <button type="button" class="btn-font-size">A+</button>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Idioma</span>
+                        <button type="button" class="btn-lang">
+                            <i data-lucide="languages" class="lang-icon"></i>
+                            <span>Switch to English</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Aspecto</span>
+                        <label for="dark-mode-toggle" class="btn-dark-mode">
+                            <i data-lucide="moon" class="dark-mode-icon"></i>
+                            <span class="dark-mode-text-span">Modo Oscuro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <section class="page-header">
+            <div class="header-title">
+                <h1>Historial Médico</h1>
+                <p id="dinamic-header-subtitle">Línea de tiempo cronológica del paciente.</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-outline"><i data-lucide="plus"></i> Nueva Entrada</button>
+                <button class="btn-primary"><i data-lucide="download"></i> Exportar Historial</button>
+            </div>
+        </section>
+
+        <div class="history-layout-grid">
+            
+            <div class="timeline-column">
+                
+                <div class="filter-search-bar">
+                    <div class="filter-tabs">
+                        <button class="tab-btn active">Todo</button>
+                        <button class="tab-btn">Sesiones</button>
+                        <button class="tab-btn">Diagnósticos</button>
+                        <button class="tab-btn">Cirugías/Labs</button>
+                    </div>
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Filtrar por palabra...">
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i data-lucide="stethoscope"></i></div>
+                        <div class="timeline-content-card">
+                            <div class="card-title-row">
+                                <div class="date-title">
+                                    <span class="date-badge">28 SEPT 2024</span>
+                                    <h3>Sesión de Rehabilitación Post-Operatoria <i data-lucide="chevron-down"></i></h3>
+                                </div>
+                                <span class="type-tag tag-sesion">Sesión</span>
+                            </div>
+                            <p class="doctor-name">Atendido por: Lic. Martha Ruiz</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i data-lucide="clipboard-list"></i></div>
+                        <div class="timeline-content-card">
+                            <div class="card-title-row">
+                                <div class="date-title">
+                                    <span class="date-badge">15 SEPT 2024</span>
+                                    <h3>Evaluación de Progreso Mensual <i data-lucide="chevron-down"></i></h3>
+                                </div>
+                                <span class="type-tag tag-diagnostico">Diagnóstico</span>
+                            </div>
+                            <p class="doctor-name">Atendido por: Dr. Roberto Sánchez</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i data-lucide="stethoscope"></i></div>
+                        <div class="timeline-content-card">
+                            <div class="card-title-row">
+                                <div class="date-title">
+                                    <span class="date-badge">08 SEPT 2024</span>
+                                    <h3>Sesión de Fortalecimiento y Crioterapia <i data-lucide="chevron-down"></i></h3>
+                                </div>
+                                <span class="type-tag tag-sesion">Sesión</span>
+                            </div>
+                            <p class="doctor-name">Atendido por: Lic. Martha Ruiz</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i data-lucide="stethoscope"></i></div>
+                        <div class="timeline-content-card">
+                            <div class="card-title-row">
+                                <div class="date-title">
+                                    <span class="date-badge">01 SEPT 2024</span>
+                                    <h3>Sesión de Movilización Activa Asistida <i data-lucide="chevron-down"></i></h3>
+                                </div>
+                                <span class="type-tag tag-sesion">Sesión</span>
+                            </div>
+                            <p class="doctor-name">Atendido por: Lic. Martha Ruiz</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i data-lucide="clipboard-list"></i></div>
+                        <div class="timeline-content-card">
+                            <div class="card-title-row">
+                                <div class="date-title">
+                                    <span class="date-badge">24 AGO 2024</span>
+                                    <h3>Control de Rango de Movimiento (ROM) <i data-lucide="chevron-down"></i></h3>
+                                </div>
+                                <span class="type-tag tag-diagnostico">Diagnóstico</span>
+                            </div>
+                            <p class="doctor-name">Atendido por: Dr. Roberto Sánchez</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-end">
+                        <span class="end-badge">Inicio del historial - Julio 2024</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sidebar-column">
+                
+                <div class="sidebar-card patient-summary-card">
+                    <div class="patient-header">
+                        <div class="avatar-box"><i data-lucide="user"></i></div>
+                        <div class="patient-title">
+                            <h2 id="dinamic-name">Carlos Mendoza</h2>
+                            <span id="dinamic-id">ID: FN-2024-8842</span>
+                        </div>
+                    </div>
+
+                    <div class="patient-meta-grid">
+                        <div class="meta-item">
+                            <span class="meta-label">Edad</span>
+                            <span class="meta-value" id="dinamic-age">34 años</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Sangre</span>
+                            <span class="meta-value" id="dinamic-blood">O Positive</span>
+                        </div>
+                    </div>
+
+                    <div class="section-divider">
+                        <h3><i data-lucide="alert-circle" class="icon-small"></i> ALERGIAS CRÍTICAS</h3>
+                        <div class="tags-row" id="dinamic-allergies">
+                            <span class="pill-tag text-maroon">Látex</span>
+                            <span class="pill-tag text-maroon">AINEs</span>
+                        </div>
+                    </div>
+
+                    <div class="section-divider">
+                        <h3>CONDICIONES CRÓNICAS</h3>
+                        <ul class="bullet-list" id="dinamic-conditions">
+                            <li>Escoliosis Lumbar</li>
+                            <li>Hipertensión controlada</li>
+                        </ul>
+                    </div>
+
+                    <div class="next-appointment-box">
+                        <i data-lucide="calendar"></i>
+                        <span id="dinamic-next-appt">Próxima Cita: 12 Oct</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card documents-card">
+                    <h3 class="box-title"><i data-lucide="paperclip" class="icon-small"></i> Documentos Adjuntos</h3>
+                    <div class="document-list">
+                        <a href="#" class="document-item">
+                            <span>RX_Lumbar_Jan.pdf</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#" class="document-item">
+                            <span>Lab_Results_Feb.pdf</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
+            <div class="footer-policies">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Soporte</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Inicializar Iconos de Lucide
+        lucide.createIcons();
+
+        // LÓGICA DE CAPTURA DINÁMICA DE PARÁMETROS
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        if (urlParams.has('nombre')) {
+            const nombre = urlParams.get('nombre');
+            const id = urlParams.get('id');
+            const edad = urlParams.get('edad');
+            const sangre = urlParams.get('sangre');
+            const cita = urlParams.get('cita') || 'No asignada';
+            
+            const alergias = urlParams.get('alergias') ? urlParams.get('alergias').split(',') : ['Ninguna'];
+            const condiciones = urlParams.get('condiciones') ? urlParams.get('condiciones').split(',') : ['Ninguna registrada'];
+
+            document.getElementById('dinamic-header-subtitle').textContent = `Línea de tiempo cronológica del paciente ${nombre}.`;
+            document.getElementById('dinamic-name').textContent = nombre;
+            document.getElementById('dinamic-id').textContent = `ID: ${id}`;
+            document.getElementById('dinamic-age').textContent = edad.includes('años') ? edad : `${edad} años`;
+            document.getElementById('dinamic-blood').textContent = sangre;
+            document.getElementById('dinamic-next-appt').textContent = `Próxima Cita: ${cita}`;
+
+            const containerAlergias = document.getElementById('dinamic-allergies');
+            containerAlergias.innerHTML = '';
+            alergias.forEach(alergia => {
+                const span = document.createElement('span');
+                span.className = 'pill-tag text-maroon';
+                span.textContent = alergia.trim();
+                containerAlergias.appendChild(span);
+            });
+
+            const containerConditions = document.getElementById('dinamic-conditions');
+            containerConditions.innerHTML = '';
+            condiciones.forEach(condicion => {
+                const li = document.createElement('li');
+                li.textContent = condicion.trim();
+                containerConditions.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Nueva Cita Full Width</title>
+    <link rel="stylesheet" href="Styles/RegistrarCita.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span>Fisio Nueva Vida</span>
+            </div>
+        </div>
+        <nav class="nav-center">
+            <a href="Index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="pacientes.html" class="nav-item"><i data-lucide="users"></i> Pacientes</a>
+            <a href="Agenda.html" class="nav-item active"><i data-lucide="calendar"></i> Agenda</a>
+            <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+            <a href="Pagos.html" class="nav-item"><i data-lucide="credit-card"></i> Pagos</a>
+            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn-notification">
+                <i data-lucide="bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="user-profile-wrapper">
+                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                <label for="user-menu-toggle" class="user-profile dropdown">
+                    <div class="user-info">
+                        <span class="username">Admin Usuario</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </label>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Tamaño de Letra</span>
+                        <div class="font-size-options">
+                            <button type="button" class="btn-font-size">A-</button>
+                            <button type="button" class="btn-font-size active">A</button>
+                            <button type="button" class="btn-font-size">A+</button>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Idioma</span>
+                        <button type="button" class="btn-lang">
+                            <i data-lucide="languages" class="lang-icon"></i>
+                            <span>Switch to English</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Aspecto</span>
+                        <label for="dark-mode-toggle" class="btn-dark-mode">
+                            <i data-lucide="moon" class="dark-mode-icon"></i>
+                            <span class="dark-mode-text-span">Modo Oscuro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <section class="page-header">
+            <div class="header-title">
+                <h1>Nueva Cita Médica</h1>
+                <p>Registro integral de sesiones de terapia, asignación de profesionales y control de caja.</p>
+            </div>
+            <div class="header-status-ribbon">
+                <div class="status-indicator">
+                    <i data-lucide="calendar-days"></i>
+                    <span>Fecha Actual: 17 de Junio, 2026</span>
+                </div>
+                <span class="conflict-badge"><i data-lucide="alert-triangle"></i> Conflictos detectados en agenda</span>
+            </div>
+        </section>
+
+        <div class="form-layout-grid">
+            
+            <div class="form-main-column">
+                <form id="form-cita-completo" class="form-card">
+                    
+                    <div class="form-section-title"><i data-lucide="user"></i> 1. Información del Paciente</div>
+                    <div class="form-grid-4">
+                        <div class="form-group span-2">
+                            <label>Buscar Paciente Registrado *</label>
+                            <div class="input-icon-wrapper">
+                                <i data-lucide="search"></i>
+                                <input type="text" placeholder="Escriba nombre, apellidos o DNI..." value="Carlos Mendoza Rabanal">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Documento de Identidad (DNI/CE)</label>
+                            <input type="text" value="72145896" readonly class="input-readonly">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono de Contacto</label>
+                            <input type="tel" value="+51 943 821 755" readonly class="input-readonly">
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="form-section-title"><i data-lucide="clock"></i> 2. Programación de la Sesión</div>
+                    
+                    <div class="conflict-alert-box">
+                        <i data-lucide="alert-circle" class="alert-icon"></i>
+                        <div class="alert-text">
+                            <strong>Alerta de Cruce de Horario:</strong> El Dr. Marco Valdivia se encuentra asignado a una sesión de <em>Rehabilitación Lumbar</em> con la paciente Flor de Liz de 08:00 a 09:00 en el Cubículo 02. Por favor, verifique el horario sugerido o cambie de ambiente/terapeuta.
+                        </div>
+                    </div>
+
+                    <div class="form-grid-3">
+                        <div class="form-group">
+                            <label>Fisioterapeuta Especialista *</label>
+                            <select>
+                                <option selected>Dr. Marco Valdivia (Traumatología)</option>
+                                <option>Dra. Beatriz Soler (Deportiva)</option>
+                                <option>Dra. Elena Vargas (Pediátrica)</option>
+                                <option>Lic. Carlos Ruiz (Neurológica)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Sala / Consultorio Asignado *</label>
+                            <select>
+                                <option selected>Cubículo 02 - Camilla de Tracción</option>
+                                <option>Cubículo 01 - Ultrasonido y Láser</option>
+                                <option>Gimnasio Principal - Readaptación</option>
+                                <option>Área de Hidroterapia</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Estado de Reserva *</label>
+                            <select class="select-status-pending">
+                                <option selected>Por Confirmar (Pendiente)</option>
+                                <option>Confirmada / Agendada</option>
+                                <option>En Espera en Clínica</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-4">
+                        <div class="form-group">
+                            <label>Fecha Programada *</label>
+                            <input type="date" value="2026-06-17">
+                        </div>
+                        <div class="form-group">
+                            <label>Hora de Inicio *</label>
+                            <input type="time" value="08:30">
+                        </div>
+                        <div class="form-group">
+                            <label>Duración Estándar</label>
+                            <select>
+                                <option>30 minutos</option>
+                                <option selected>60 minutos (1 Hora)</option>
+                                <option>90 minutos</option>
+                                <option>120 minutos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Frecuencia / Recurrencia</label>
+                            <select>
+                                <option selected>Cita Única</option>
+                                <option>Repetir semanalmente (Misma hora)</option>
+                                <option>Tratamiento Diario Interdiario</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="form-section-title"><i data-lucide="stethosocpe"></i> 3. Especificaciones del Tratamiento</div>
+                    <div class="form-grid-3">
+                        <div class="form-group">
+                            <label>Tipo de Servicio / Especialidad *</label>
+                            <select>
+                                <option selected>Fisioterapia Deportiva / Readaptación</option>
+                                <option>Rehabilitación Traumatológica Post-Op</option>
+                                <option>Terapia Manual Ortopédica</option>
+                                <option>Descarga Muscular Avanzada</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Zona Corporal a Tratar *</label>
+                            <input type="text" placeholder="Ej. Rodilla Derecha, Columna Lumbar..." value="Rodilla Izquierda (Tendón Rotuliano)">
+                        </div>
+                        <div class="form-group">
+                            <label>Control de Sesiones</label>
+                            <div class="session-counter-wrapper">
+                                <input type="number" value="3" style="width: 70px; text-align: center;">
+                                <span class="counter-label">de un plan total de</span>
+                                <input type="number" value="10" style="width: 70px; text-align: center;">
+                                <span class="counter-label">sesiones</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notas Clínicas / Observaciones de Admisión</label>
+                        <textarea placeholder="Ingrese síntomas principales, limitaciones de movilidad o indicaciones específicas proporcionadas por el médico tratante...">Paciente refiere dolor agudo (7/10 EVA) al realizar flexión forzada. Tercera sesión tras cirugía artroscópica. Evitar cargas excesivas en cadenas cinéticas abiertas.</textarea>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="form-section-title"><i data-lucide="credit-card"></i> 4. Costo y Estado de Pago</div>
+                    <div class="form-grid-4">
+                        <div class="form-group">
+                            <label>Precio de la Sesión (S/.) *</label>
+                            <input type="number" step="0.01" value="85.00">
+                        </div>
+                        <div class="form-group">
+                            <label>Descuento Aplicado (S/.)</label>
+                            <input type="number" step="0.01" value="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label>Condición de Pago *</label>
+                            <select class="select-payment-unpaid">
+                                <option>Pendiente de Pago</option>
+                                <option selected>Pagado Total</option>
+                                <option>Pago Parcial / Adelanto</option>
+                                <option>Cubierto por Seguro / Paquete</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Método de Pago Empleado</label>
+                            <select>
+                                <option>Efectivo</option>
+                                <option selected>Transferencia Yape / Plin</option>
+                                <option>Tarjeta de Crédito / Débito</option>
+                                <option>Transferencia Bancaria (BCP)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-checkbox-group">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="label-text">Enviar recordatorio automatizado vía WhatsApp Web de la clínica (24h antes)</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="label-text">Notificar automáticamente al correo electrónico del fisioterapeuta asignado</span>
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="label-text">Generar y emitir comprobante electrónico (Boleta/Factura) al guardar</span>
+                        </label>
+                    </div>
+
+                    <div class="file-uploader-box">
+                        <i data-lucide="upload-cloud"></i>
+                        <div class="uploader-text">
+                            <p>Arrastre u ordene órdenes médicas, informes radiológicos o de resonancia aquí</p>
+                            <span>Soporta formatos PDF, PNG, JPG hasta un máximo de 15 MB por archivo</span>
+                        </div>
+                        <button type="button" class="btn-uploader-trigger">Explorar Archivos</button>
+                    </div>
+
+                </form>
+
+                <div class="form-submit-actions">
+                    <button type="button" class="btn-action-secondary" onclick="window.location.href='agenda.html'">Descartar Cambios</button>
+
+                    <button type="submit" form="form-cita-completo" class="btn-action-primary">Confirmar</button>
+                </div>
+            </div>
+
+            <div class="form-sidebar-column">
+                
+                <div class="sidebar-widget-card">
+                    <div class="widget-header">
+                        <span class="widget-title"><i data-lucide="calendar"></i> Calendario de Control</span>
+                        <div class="widget-nav">
+                            <button class="btn-nav-arrow"><i data-lucide="chevron-left"></i></button>
+                            <span>Junio 2026</span>
+                            <button class="btn-nav-arrow"><i data-lucide="chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="mini-calendar-layout">
+                        <div class="calendar-day-head">L</div><div class="calendar-day-head">M</div><div class="calendar-day-head">M</div><div class="calendar-day-head">J</div><div class="calendar-day-head">V</div><div class="calendar-day-head">S</div><div class="calendar-day-head">D</div>
+                        <div class="day-disabled">1</div><div class="day-disabled">2</div><div class="day-disabled">3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+                        <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
+                        <div>15</div><div>16</div><div class="day-active-selected">17</div><div>18</div><div>19</div><div>20</div><div>21</div>
+                        <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
+                        <div>29</div><div>30</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget-card">
+                    <div class="widget-header">
+                        <span class="widget-title"><i data-lucide="user-check"></i> Turno: Dr. Marco Valdivia</span>
+                        <span class="badge-day-info">Hoy</span>
+                    </div>
+                    <div class="timeline-slots-container">
+                        <div class="timeline-slot status-block-busy">
+                            <div class="slot-time">08:00 - 09:00</div>
+                            <div class="slot-desc">Rehabilitación (Flor de Liz)</div>
+                        </div>
+                        <div class="timeline-slot status-block-conflict">
+                            <div class="slot-time">08:30 - 09:30</div>
+                            <div class="slot-desc">Cita Actual (Conflicto Detectado)</div>
+                        </div>
+                        <div class="timeline-slot status-block-free">
+                            <div class="slot-time">09:30 - 10:30</div>
+                            <div class="slot-desc">Disponible para asignación</div>
+                        </div>
+                        <div class="timeline-slot status-block-free">
+                            <div class="slot-time">10:30 - 11:30</div>
+                            <div class="slot-desc">Disponible para asignación</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget-card">
+                    <div class="widget-header">
+                        <span class="widget-title"><i data-lucide="folder-heart"></i> Resumen Clínico</span>
+                    </div>
+                    <div class="patient-quick-profile">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80" alt="Carlos Mendoza" class="patient-avatar">
+                        <div class="patient-meta">
+                            <h3>Carlos Mendoza R.</h3>
+                            <span>Código: PAC-2026-0412</span>
+                        </div>
+                    </div>
+                    <ul class="patient-stats-list">
+                        <li><span>Diagnóstico Base:</span> <strong>Esguince de rodilla G2</strong></li>
+                        <li><span>Última Atención:</span> <strong>12 de Mayo, 2026</strong></li>
+                        <li><span>Asistencia General:</span> <strong>92% de efectividad</strong></li>
+                        <li><span>Deuda Acumulada:</span> <strong style="color: #16a34a;">S/. 0.00 (Al día)</strong></li>
+                    </ul>
+                </div>
+
+                <div class="security-privacy-note">
+                    <i data-lucide="shield-alert"></i>
+                    <p>Toda la información introducida queda registrada bajo auditoría clínica de seguridad de datos de salud de Fisio Nueva Vida.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
+            <div class="footer-policies">
+                <a href="#">Términos de Servicio</a>
+                <a href="#">Políticas de Privacidad</a>
+                <a href="#">Centro de Soporte</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Inicialización obligatoria de iconos Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>

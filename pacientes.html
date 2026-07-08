@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Pacientes</title>
+    <link rel="stylesheet" href="Styles/pacientes.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span>Fisio Nueva Vida</span>
+            </div>
+        </div>
+        <nav class="nav-center">
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="#" class="nav-item active"><i data-lucide="users"></i> Pacientes</a>
+            <a href="Agenda.html" class="nav-item"><i data-lucide="calendar"></i> Agenda</a>
+            <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+            <a href="Pagos.html" class="nav-item"><i data-lucide="credit-card"></i> Pagos</a>
+            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn-notification">
+                <i data-lucide="bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="user-profile-wrapper">
+                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                <label for="user-menu-toggle" class="user-profile dropdown">
+                    <div class="user-info">
+                        <span class="username">Admin Usuario</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </label>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Tamaño de Letra</span>
+                        <div class="font-size-options">
+                            <button type="button" class="btn-font-size">A-</button>
+                            <button type="button" class="btn-font-size active">A</button>
+                            <button type="button" class="btn-font-size">A+</button>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Idioma</span>
+                        <button type="button" class="btn-lang">
+                            <i data-lucide="languages" class="lang-icon"></i>
+                            <span>Switch to English</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Aspecto</span>
+                        <label for="dark-mode-toggle" class="btn-dark-mode">
+                            <i data-lucide="moon" class="dark-mode-icon"></i>
+                            <span class="dark-mode-text-span">Modo Oscuro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <section class="page-header">
+            <h1>Pacientes</h1>
+            <p>Gestiona la base de datos de pacientes y su historial clínico.</p>
+        </section>
+
+        <section class="action-bar">
+            <div class="action-left">
+                <div class="search-wrapper">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" placeholder="Buscar por nombre, DNI o patología...">
+                </div>
+                <button class="btn-filter">
+                    <i data-lucide="sliders-horizontal"></i> Filtros
+                </button>
+            </div>
+            <div class="action-right">
+                <button class="btn-export" title="Exportar">
+                    <i data-lucide="download"></i>
+                </button>
+                <button class="btn-primary" onclick="window.location.href='RegistrarPaciente.html'">
+                    <i data-lucide="plus"></i> Nuevo Paciente
+                </button>
+            </div>
+        </section>
+
+        <section class="table-card">
+            <div class="table-responsive">
+                <table class="patients-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">
+                                <div class="th-sort">Paciente <i data-lucide="arrow-up-down"></i></div>
+                            </th>
+                            <th>Edad</th>
+                            <th>Teléfono</th>
+                            <th>Última Cita</th>
+                            <th>Estado</th>
+                            <th style="text-align: right; padding-right: 24px;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="Carlos" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Carlos Martínez&id=FN-2024-8842&edad=42&sangre=O Positive&alergias=Látex,AINEs&condiciones=Escoliosis Lumbar,Hipertensión controlada&cita=12 Oct 2024'">Carlos Martínez</span>
+                                </div>
+                            </td>
+                            <td>42 años</td>
+                            <td class="text-muted">+34 612 345 678</td>
+                            <td>12 Oct 2024</td>
+                            <td><span class="status-badge activo">Activo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Elena" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Elena Rodríguez&id=FN-2024-5102&edad=28&sangre=A Positive&alergias=Penicilina&condiciones=Hernia Discal L5-S1,Escoliosis Cervical&cita=05 Oct 2024'">Elena Rodríguez</span>
+                                </div>
+                            </td>
+                            <td>28 años</td>
+                            <td class="text-muted">+34 622 987 654</td>
+                            <td>05 Oct 2024</td>
+                            <td><span class="status-badge activo">Activo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Miguel" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Miguel Ángel Ruiz&id=FN-2023-1194&edad=55&sangre=B Negative&alergias=Ninguna&condiciones=Artrosis de Rodilla,Diabetes Tipo 2&cita=20 Sep 2024'">Miguel Ángel Ruiz</span>
+                                </div>
+                            </td>
+                            <td>55 años</td>
+                            <td class="text-muted">+34 655 444 333</td>
+                            <td>20 Sep 2024</td>
+                            <td><span class="status-badge inactivo">Inactivo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Sofía" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Sofía López&id=FN-2024-4402&edad=34&sangre=O Negative&alergias=Polen,Látex&condiciones=Post-Operatorio LCA&cita=14 Oct 2024'">Sofía López</span>
+                                </div>
+                            </td>
+                            <td>34 años</td>
+                            <td class="text-muted">+34 600 111 222</td>
+                            <td>14 Oct 2024</td>
+                            <td><span class="status-badge activo">Activo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100" alt="Javier" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Javier Gómez&id=FN-2022-7711&edad=61&sangre=AB Positive&alergias=AINEs&condiciones=Tendinitis Aquilea,Hipertensión&cita=30 Sep 2024'">Javier Gómez</span>
+                                </div>
+                            </td>
+                            <td>61 años</td>
+                            <td class="text-muted">+34 688 777 999</td>
+                            <td>30 Sep 2024</td>
+                            <td><span class="status-badge inactivo">Inactivo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="Lucía" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Lucía Fernández&id=FN-2025-9923&edad=31&sangre=A Negative&alergias=Ninguna&condiciones=Fascitis Plantar Cronica&cita=18 Oct 2024'">Lucía Fernández</span>
+                                </div>
+                            </td>
+                            <td>31 años</td>
+                            <td class="text-muted">+34 611 222 333</td>
+                            <td>18 Oct 2024</td>
+                            <td><span class="status-badge activo">Activo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=100" alt="Diego" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Diego Delgado&id=FN-2024-1234&edad=45&sangre=O Positive&alergias=Contraste Yodado&condiciones=Lumbago Agudo&cita=11 Oct 2024'">Diego Delgado</span>
+                                </div>
+                            </td>
+                            <td>45 años</td>
+                            <td class="text-muted">+34 633 444 555</td>
+                            <td>11 Oct 2024</td>
+                            <td><span class="status-badge activo">Activo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100" alt="María" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=María Torres&id=FN-2023-8821&edad=38&sangre=B Positive&alergias=Látex&condiciones=Sindrome del Tunel Carpiano&cita=02 Oct 2024'">María Torres</span>
+                                </div>
+                            </td>
+                            <td>38 años</td>
+                            <td class="text-muted">+34 677 888 999</td>
+                            <td>02 Oct 2024</td>
+                            <td><span class="status-badge inactivo">Inactivo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100" alt="Alejandro" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Alejandro Sanz&id=FN-2021-0032&edad=50&sangre=O Negative&alergias=Ninguna&condiciones=Cervicalgia Mecánica&cita=25 Sep 2024'">Alejandro Sanz</span>
+                                </div>
+                            </td>
+                            <td>50 años</td>
+                            <td class="text-muted">+34 644 555 666</td>
+                            <td>25 Sep 2024</td>
+                            <td><span class="status-badge activo">Activo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=100" alt="Carmen" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Carmen Ortiz&id=FN-2020-4152&edad=67&sangre=A Negative&alergias=Sulfa&condiciones=Gonalgia Bilateral,Osteoporosis&cita=15 Sep 2024'">Carmen Ortiz</span>
+                                </div>
+                            </td>
+                            <td>67 años</td>
+                            <td class="text-muted">+34 622 333 444</td>
+                            <td>15 Sep 2024</td>
+                            <td><span class="status-badge inactivo">Inactivo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="patient-cell">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Ana" class="patient-avatar">
+                                    <span class="patient-name" onclick="window.location.href='HistorialMedico.html?nombre=Ana Martínez&id=FN-2026-0012&edad=24&sangre=O Positive&alergias=Ninguna&condiciones=Esguince de Tobillo Grado II&cita=16 Jun 2026'">Ana Martínez</span>
+                                </div>
+                            </td>
+                            <td>24 años</td>
+                            <td class="text-muted">+34 611 777 888</td>
+                            <td>16 Jun 2026</td>
+                            <td><span class="status-badge activo">Activo</span></td>
+                            <td style="text-align: right; padding-right: 24px;">
+                                <button class="btn-row-action"><i data-lucide="more-vertical"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="pagination-container">
+            <div class="pagination-info">
+                Mostrando 11 de 128 pacientes
+            </div>
+            <div class="pagination-controls">
+                <button class="btn-page">Anterior</button>
+                <button class="btn-page page-number active">1</button>
+                <button class="btn-page page-number">2</button>
+                <button class="btn-page page-number">3</button>
+                <button class="btn-page">Siguiente</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <a href="login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
+            <div class="footer-policies">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Soporte</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Registrar Fisioterapeuta Full Width</title>
+    <link rel="stylesheet" href="Styles/RegistrarFisioterapeuta.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span>Fisio Nueva Vida</span>
+            </div>
+        </div>
+        <nav class="nav-center">
+            <a href="Index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="pacientes.html" class="nav-item"><i data-lucide="users"></i> Pacientes</a>
+            <a href="Agenda.html" class="nav-item"><i data-lucide="calendar"></i> Agenda</a>
+            <a href="Fisioterapeutas.html" class="nav-item active"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+            <a href="Pagos.html" class="nav-item"><i data-lucide="credit-card"></i> Pagos</a>
+            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn-notification">
+                <i data-lucide="bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="user-profile-wrapper">
+                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                <label for="user-menu-toggle" class="user-profile dropdown">
+                    <div class="user-info">
+                        <span class="username">Admin Usuario</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </label>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Tamaño de Letra</span>
+                        <div class="font-size-options">
+                            <button type="button" class="btn-font-size">A-</button>
+                            <button type="button" class="btn-font-size active">A</button>
+                            <button type="button" class="btn-font-size">A+</button>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Idioma</span>
+                        <button type="button" class="btn-lang">
+                            <i data-lucide="languages" class="lang-icon"></i>
+                            <span>Switch to English</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Aspecto</span>
+                        <label for="dark-mode-toggle" class="btn-dark-mode">
+                            <i data-lucide="moon" class="dark-mode-icon"></i>
+                            <span class="dark-mode-text-span">Modo Oscuro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <section class="page-header">
+            <div class="header-title">
+                <h1>Registrar Nuevo Fisioterapeuta</h1>
+                <p>Complete la información detallada para dar de alta al profesional en el sistema de gestión de turnos y agendas.</p>
+            </div>
+            <div class="header-buttons">
+                <button type="button" class="btn-cancel" onclick="window.location.href='Fisioterapeutas.html'"><i data-lucide="x"></i> Cancelar</button>
+                <button type="submit" form="form-fisioterapeuta" class="btn-save" onclick="window.location.href='Fisioterapeutas.html'"><i data-lucide="save"></i> Guardar Fisioterapeuta</button>
+            </div>
+        </section>
+
+        <div class="form-layout-grid">
+            
+            <div class="form-main-column">
+                <form id="form-fisioterapeuta" class="form-card">
+                    
+                    <div class="form-section-title"><i data-lucide="user"></i> 1. Datos Personales y Colegiatura</div>
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Nombre Completo *</label>
+                            <input type="text" placeholder="Ej. Juan Pérez García" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Documento de Identidad (DNI/CE) *</label>
+                            <input type="text" placeholder="00000000X" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Fecha de Nacimiento *</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Género</label>
+                            <select>
+                                <option value="" disabled selected>Seleccione género...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                                <option value="O">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="form-section-title"><i data-lucide="phone"></i> 2. Información de Contacto</div>
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Teléfono Móvil *</label>
+                            <div class="input-icon-wrapper">
+                                <i data-lucide="phone" class="field-icon"></i>
+                                <input type="tel" placeholder="+34 600 000 000" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <div class="input-icon-wrapper">
+                                <i data-lucide="mail" class="field-icon"></i>
+                                <input type="email" placeholder="usuario@ejemplo.com">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label>Dirección de Domicilio</label>
+                        <div class="input-icon-wrapper">
+                            <i data-lucide="map-pin" class="field-icon"></i>
+                            <input type="text" placeholder="Calle, Número, Piso, Puerta">
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Ciudad</label>
+                            <input type="text" placeholder="Ej. Cajamarca">
+                        </div>
+                        <div class="form-group">
+                            <label>Código Postal</label>
+                            <input type="text" placeholder="Ej. 06001">
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="form-section-title"><i data-lucide="graduation-cap"></i> 3. Especialidad e Información Académica</div>
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Número de Colegiatura Profesional (CTMP) *</label>
+                            <input type="text" placeholder="Ej. CTMP-12345" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Especialidad Médica Principal *</label>
+                            <select required>
+                                <option value="" disabled selected>Seleccione una especialidad...</option>
+                                <option value="traumato">Traumatología y Ortopedia</option>
+                                <option value="deportiva">Fisioterapia Deportiva / Readaptación</option>
+                                <option value="neuro">Rehabilitación Neurológica</option>
+                                <option value="pediatrica">Fisioterapia Pediátrica</option>
+                                <option value="geriatrica">Fisioterapia Geriátrica</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Resumen de Perfil Profesional / Logros Académicos</label>
+                        <textarea placeholder="Breve descripción de certificaciones adicionales (Mano, Punción Seca, Pilates Clínico, Kinesiotaping)..."></textarea>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="form-sidebar-column">
+                
+                <div class="sidebar-widget-card profile-upload-box">
+                    <div class="avatar-placeholder">
+                        <i data-lucide="user" class="avatar-icon"></i>
+                    </div>
+                    <h3>Foto de Perfil</h3>
+                    <p>Haz clic para subir o capturar una foto del fisioterapeuta para el directorio activo.</p>
+                    <button type="button" class="btn-upload-trigger">Subir Imagen</button>
+                </div>
+
+                <div class="sidebar-widget-card">
+                    <div class="widget-header">
+                        <span class="widget-title"><i data-lucide="clock"></i> Turno y Horario Base</span>
+                    </div>
+                    
+                    <div class="accordion-item open">
+                        <div class="accordion-header">
+                            <div class="accordion-header-left">
+                                <i data-lucide="calendar-range" class="acc-icon"></i>
+                                <span>Días y Franja Horaria</span>
+                            </div>
+                            <i data-lucide="chevron-up" class="chevron-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="form-group" style="margin-bottom: 10px;">
+                                <label style="font-size: 11px;">Régimen de Turno</label>
+                                <select style="height: 34px; font-size: 12px;">
+                                    <option>Turno Mañana (08:00 - 16:00)</option>
+                                    <option>Turno Tarde (14:00 - 22:00)</option>
+                                    <option>Tiempo Completo Rotativo</option>
+                                </select>
+                            </div>
+                            <div class="days-checkbox-grid">
+                                <span class="day-badge active">L</span>
+                                <span class="day-badge active">M</span>
+                                <span class="day-badge active">M</span>
+                                <span class="day-badge active">J</span>
+                                <span class="day-badge active">V</span>
+                                <span class="day-badge">S</span>
+                                <span class="day-badge">D</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item closed">
+                        <div class="accordion-header">
+                            <div class="accordion-header-left">
+                                <i data-lucide="map" class="acc-icon"></i>
+                                <span>Cubículos y Salas Asignadas</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget-card">
+                    <div class="widget-header">
+                        <span class="widget-title"><i data-lucide="file-spreadsheet"></i> Notas Administrativas</span>
+                    </div>
+                    <div class="sidebar-notes-area">
+                        <textarea placeholder="Observaciones de contratación interna, régimen fiscal (Recibo por Honorarios/Planilla), comisiones acordadas por sesión o convenios específicos..."></textarea>
+                    </div>
+                </div>
+
+                <div class="security-privacy-note">
+                    <i data-lucide="shield-check"></i>
+                    <p>Los datos ingresados forman parte del legajo profesional y médico auditable interno de la clínica Fisio Nueva Vida.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
+            <div class="footer-policies">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Soporte</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Renderizador automático de iconos Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>

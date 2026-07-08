@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Agenda de Citas</title>
+    <link rel="stylesheet" href="Styles/Agenda.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <!-- Navbar Fijo Original -->
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span>Fisio Nueva Vida</span>
+            </div>
+        </div>
+        <nav class="nav-center">
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="pacientes.html" class="nav-item"><i data-lucide="users"></i> Pacientes</a>
+            <a href="#" class="nav-item active"><i data-lucide="calendar"></i> Agenda</a>
+            <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+            <a href="Pagos.html" class="nav-item"><i data-lucide="credit-card"></i> Pagos</a>
+            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn-notification">
+                <i data-lucide="bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="user-profile-wrapper">
+                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                <label for="user-menu-toggle" class="user-profile dropdown">
+                    <div class="user-info">
+                        <span class="username">Admin Usuario</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </label>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Tamaño de Letra</span>
+                        <div class="font-size-options">
+                            <button type="button" class="btn-font-size">A-</button>
+                            <button type="button" class="btn-font-size active">A</button>
+                            <button type="button" class="btn-font-size">A+</button>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Idioma</span>
+                        <button type="button" class="btn-lang">
+                            <i data-lucide="languages" class="lang-icon"></i>
+                            <span>Switch to English</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Aspecto</span>
+                        <label for="dark-mode-toggle" class="btn-dark-mode">
+                            <i data-lucide="moon" class="dark-mode-icon"></i>
+                            <span class="dark-mode-text-span">Modo Oscuro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor de Pantalla Completa -->
+    <main class="page-container">
+        
+        <!-- Cabecera de la Agenda -->
+        <section class="page-header">
+            <div class="header-title">
+                <h1>Agenda de Citas</h1>
+                <p>Gestiona y programa las sesiones de fisioterapia de tus pacientes.</p>
+            </div>
+        </section>
+
+        <!-- Barra de Herramientas Superior (Filtros, Vistas y Fechas) -->
+        <section class="agenda-toolbar">
+            <div class="view-selector">
+                <button class="btn-view">Día</button>
+                <button class="btn-view active">Semana</button>
+                <button class="btn-view">Mes</button>
+            </div>
+            
+            <div class="date-navigator">
+                <button class="btn-nav-arrow"><i data-lucide="chevron-left"></i></button>
+                <span class="date-range-text">18 - 24 Mayo, 2026</span>
+                <button class="btn-nav-arrow"><i data-lucide="chevron-right"></i></button>
+                <button class="btn-hoy"><i data-lucide="calendar"></i> Hoy</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-action-outline"><i data-lucide="sliders-horizontal"></i> Filtros</button>
+                <button class="btn-action-outline"><i data-lucide="download"></i> Exportar</button>
+                <button class="btn-action-primary" onclick="window.location.href='RegistrarCita.html'">
+                <i data-lucide="plus"></i> Nueva Cita
+                </button>
+            </div>
+        </section>
+
+        <!-- Layout de Dos Columnas (Cuadrícula Semanal + Sidebar) -->
+        <div class="agenda-layout-grid">
+            
+            <!-- Columna del Calendario Semanal Completo -->
+            <div class="calendar-grid-container">
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th class="col-hora">Hora</th>
+                            <th>Lunes <span class="day-number">18</span></th>
+                            <th>Martes <span class="day-number">19</span></th>
+                            <th>Miércoles <span class="day-number">20</span></th>
+                            <th>Jueves <span class="day-number">21</span></th>
+                            <th>Viernes <span class="day-number">22</span></th>
+                            <th>Sábado <span class="day-number">23</span></th>
+                            <th>Domingo <span class="day-number">24</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 8:00 -->
+                        <tr>
+                            <td class="row-time">8:00</td>
+                            <td></td>
+                            <td>
+                                <div class="appointment-card border-maroon">
+                                    <h4>Juan Pérez</h4>
+                                    <span class="app-time"><i data-lucide="clock"></i> 08:30 - 09:30</span>
+                                    <span class="app-desc">Post-operatc</span>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!-- 9:00 -->
+                        <tr>
+                            <td class="row-time">9:00</td>
+                            <td>
+                                <div class="appointment-card border-maroon selected-card">
+                                    <h4>Carlos Mendoza</h4>
+                                    <span class="app-time"><i data-lucide="clock"></i> 09:00 - 10:00</span>
+                                    <span class="app-desc">Rehabilitació</span>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="appointment-card border-maroon">
+                                    <h4>Marta Sánchez</h4>
+                                    <span class="app-time"><i data-lucide="clock"></i> 09:00 - 10:00</span>
+                                    <span class="app-desc">Osteopatía</span>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!-- 10:00 -->
+                        <tr>
+                            <td class="row-time">10:00</td>
+                            <td>
+                                <div class="appointment-card border-maroon">
+                                    <h4>Sofia García</h4>
+                                    <span class="app-time"><i data-lucide="clock"></i> 10:30 - 11:30</span>
+                                    <span class="app-desc">Fisioterapia I</span>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!-- 11:00 -->
+                        <tr>
+                            <td class="row-time">11:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="appointment-card border-maroon">
+                                    <h4>Roberto Gómez</h4>
+                                    <span class="app-time"><i data-lucide="clock"></i> 11:00 - 12:00</span>
+                                    <span class="app-desc">Drenaje Linfi</span>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!-- 12:00 -->
+                        <tr>
+                            <td class="row-time">12:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 13:00 -->
+                        <tr>
+                            <td class="row-time">13:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 14:00 -->
+                        <tr>
+                            <td class="row-time">14:00</td>
+                            <td></td><td></td>
+                            <td>
+                                <div class="appointment-card border-maroon">
+                                    <h4>Lucía Fernández</h4>
+                                    <span class="app-time"><i data-lucide="clock"></i> 14:00 - 15:30</span>
+                                    <span class="app-desc">Masaje Terape</span>
+                                </div>
+                            </td>
+                            <td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 15:00 -->
+                        <tr>
+                            <td class="row-time">15:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 16:00 -->
+                        <tr>
+                            <td class="row-time">16:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 17:00 -->
+                        <tr>
+                            <td class="row-time">17:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 18:00 -->
+                        <tr>
+                            <td class="row-time">18:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 19:00 -->
+                        <tr>
+                            <td class="row-time">19:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                        <!-- 20:00 -->
+                        <tr>
+                            <td class="row-time">20:00</td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Columna Lateral Derecha (Sidebar Informativo) -->
+            <div class="sidebar-column">
+                
+                <!-- Tarjeta: Cita Seleccionada -->
+                <div class="sidebar-card details-card">
+                    <div class="card-badge-header">
+                        <span class="badge-selected">Cita Seleccionada</span>
+                        <button class="btn-more"><i data-lucide="more-vertical"></i></button>
+                    </div>
+
+                    <div class="patient-main-info">
+                        <h2>Carlos Mendoza</h2>
+                        <span class="patient-id">ID: PAC-2024-089</span>
+                    </div>
+
+                    <div class="treatment-box">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Fisioterapeuta" class="treatment-avatar">
+                        <div class="treatment-text">
+                            <span class="treatment-label">TRATAMIENTO</span>
+                            <span class="treatment-value">Rehabilitación Lumbar</span>
+                        </div>
+                    </div>
+
+                    <div class="appointment-meta-list">
+                        <div class="meta-line">
+                            <i data-lucide="calendar"></i>
+                            <span>Lunes, 20 Mayo</span>
+                        </div>
+                        <div class="meta-line">
+                            <i data-lucide="clock"></i>
+                            <span>09:00 - 10:00 (60 min)</span>
+                        </div>
+                        <div class="meta-line">
+                            <i data-lucide="user"></i>
+                            <span>Dra. Elena Rodríguez</span>
+                        </div>
+                        <div class="meta-line">
+                            <i data-lucide="activity"></i>
+                            <span>Sesión 4 de 10</span>
+                        </div>
+                    </div>
+
+                    <div class="card-actions-row">
+                        <button class="btn-sidebar-primary">Editar Cita</button>
+                        <button class="btn-sidebar-outline">Ver Ficha Médica</button>
+                    </div>
+                </div>
+
+                <!-- Módulo: Disponibilidad Hoy -->
+                <div class="sidebar-section-title">
+                    <h3>DISPONIBILIDAD HOY</h3>
+                </div>
+
+                <!-- Doctor 1 -->
+                <div class="doctor-availability-card">
+                    <div class="doc-header">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=100&auto=format&fit=crop&q=80" alt="Doctor" class="doc-avatar">
+                        <div class="doc-title-info">
+                            <h4>Dra. Elena R.</h4>
+                            <span class="status-indicator text-green">OCUPADA (80%)</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="accordion-arrow"></i>
+                    </div>
+                    <div class="doc-details-expanded">
+                        <div class="detail-row">
+                            <span class="detail-label">Total Citas:</span>
+                            <span class="detail-value">8</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Próximo Hueco:</span>
+                            <span class="detail-value">13:30</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="doctor-availability-card">
+                    <div class="doc-header">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=100&auto=format&fit=crop&q=80" alt="Doctor" class="doc-avatar">
+                        <div class="doc-title-info">
+                            <h4>Dr. Marco A.</h4>
+                            <span class="status-indicator text-orange">MEDIA (50%)</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="accordion-arrow"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Global -->
+        <footer class="main-footer">
+            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
+            <div class="footer-policies">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Soporte</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

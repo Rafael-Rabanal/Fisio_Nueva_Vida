@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Análisis de Ingresos Mensuales</title>
+    <link rel="stylesheet" href="Styles/Reportes.css">
+    <!-- Iconos Lucide CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <!-- Navbar Superior Oficial -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo-area">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span class="logo-text">Fisio Nueva Vida</span>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="Index.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+                <a href="pacientes.html" class="nav-link"><i data-lucide="users"></i> Pacientes</a>
+                <a href="Agenda.html" class="nav-link"><i data-lucide="calendar"></i> Agenda</a>
+                <a href="Fisioterapeutas.html" class="nav-link"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+                <a href="Pagos.html" class="nav-link"><i data-lucide="credit-card"></i> Pagos</a>
+                <a href="#" class="nav-link active"><i data-lucide="bar-chart-3"></i> Reportes</a>
+            </nav>
+
+            <div class="user-area">
+                <button class="btn-bell">
+                    <i data-lucide="bell"></i>
+                </button>
+                <div class="user-profile-wrapper">
+                    <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                    <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                    <label for="user-menu-toggle" class="user-profile dropdown">
+                        <div class="user-meta">
+                            <span class="user-name">Admin Usuario</span>
+                            <span class="user-role">Administrador</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar">
+                        <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                    </label>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <span class="dropdown-section-title">Tamaño de Letra</span>
+                            <div class="font-size-options">
+                                <button type="button" class="btn-font-size">A-</button>
+                                <button type="button" class="btn-font-size active">A</button>
+                                <button type="button" class="btn-font-size">A+</button>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-section">
+                            <span class="dropdown-section-title">Idioma</span>
+                            <button type="button" class="btn-lang">
+                                <i data-lucide="languages" class="lang-icon"></i>
+                                <span>Switch to English</span>
+                            </button>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-section">
+                            <span class="dropdown-section-title">Aspecto</span>
+                            <label for="dark-mode-toggle" class="btn-dark-mode">
+                                <i data-lucide="moon" class="dark-mode-icon"></i>
+                                <span class="dark-mode-text-span">Modo Oscuro</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor de doble columna (Sidebar + Main) -->
+    <div class="dashboard-layout">
+        
+        <!-- SIDEBAR DE CONFIGURACIÓN DEL REPORTE -->
+        <aside class="report-sidebar">
+            <div class="sidebar-title">
+                <i data-lucide="sliders-horizontal"></i>
+                <span>CONFIGURACIÓN DEL REPORTE</span>
+            </div>
+
+            <!-- Grupo: Tipo de Reporte -->
+            <div class="sidebar-group">
+                <label class="group-label">Tipo de Reporte</label>
+                <div class="report-options-list">
+                    <div class="report-option active">
+                        <span class="option-title">Ingresos Mensuales</span>
+                        <span class="option-desc">Análisis financiero detallado por mes.</span>
+                    </div>
+                    <div class="report-option">
+                        <span class="option-title">Volumen de Pacientes</span>
+                        <span class="option-desc">Cantidad de pacientes atendidos y nuevos.</span>
+                    </div>
+                    <div class="report-option">
+                        <span class="option-title">Asistencia a Sesiones</span>
+                        <span class="option-desc">Tasa de cumplimiento y cancelaciones.</span>
+                    </div>
+                    <div class="report-option">
+                        <span class="option-title">Rendimiento de Staff</span>
+                        <span class="option-desc">Métricas de desempeño por fisioterapeuta.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grupo: Rango de Fechas -->
+            <div class="sidebar-group">
+                <label class="group-label">Rango de Fechas</label>
+                <div class="date-inputs-grid">
+                    <div class="date-field">
+                        <i data-lucide="calendar"></i>
+                        <input type="text" value="01/01/2024">
+                    </div>
+                    <div class="date-field">
+                        <i data-lucide="calendar"></i>
+                        <input type="text" value="30/06/2024">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grupo: Fisioterapeuta Dropdown -->
+            <div class="sidebar-group">
+                <label class="group-label">Fisioterapeuta</label>
+                <div class="select-field">
+                    <span>Todos los especialistas</span>
+                    <i data-lucide="chevron-down"></i>
+                </div>
+            </div>
+
+            <!-- Botón de acción principal -->
+            <button class="btn-generate-report">Generar Reporte</button>
+
+            <!-- Nota de Ayuda Inferior -->
+            <div class="help-note-box">
+                <span class="help-title">Nota de Ayuda</span>
+                <p class="help-text">Los reportes se generan en tiempo real basados en la facturación y los registros de sesiones completadas.</p>
+            </div>
+        </aside>
+
+        <!-- ÁREA CENTRAL / CONTENIDO DE REPORTES -->
+        <main class="report-content">
+            
+            <!-- Encabezado del Reporte -->
+            <section class="report-header">
+                <div class="report-title-block">
+                    <h1>Análisis de Ingresos Mensuales</h1>
+                    <p>Visualización de datos financieros del primer semestre de 2024</p>
+                </div>
+                <div class="report-actions-block">
+                    <button class="btn-action-outline"><i data-lucide="download"></i> CSV</button>
+                    <button class="btn-action-outline"><i data-lucide="file-text"></i> PDF</button>
+                </div>
+            </section>
+
+            <!-- Fila de Tarjetas de Métricas Principales (KPIs) -->
+            <section class="metrics-row">
+                <!-- Tarjeta 1 -->
+                <div class="metric-card">
+                    <div class="metric-data">
+                        <span class="card-label">Ingresos Totales</span>
+                        <h2 class="card-value">30.800 €</h2>
+                        <span class="card-sub text-success"><i data-lucide="trending-up"></i> +12% vs anterior</span>
+                    </div>
+                    <div class="card-icon-box">
+                        <i data-lucide="credit-card"></i>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="metric-card">
+                    <div class="metric-data">
+                        <span class="card-label">Sesiones Atendidas</span>
+                        <h2 class="card-value">845</h2>
+                        <span class="card-sub text-success"><i data-lucide="trending-up"></i> +5% vs anterior</span>
+                    </div>
+                    <div class="card-icon-box">
+                        <i data-lucide="activity"></i>
+                    </div>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="metric-card">
+                    <div class="metric-data">
+                        <span class="card-label">Pacientes Activos</span>
+                        <h2 class="card-value">124</h2>
+                    </div>
+                    <div class="card-icon-box">
+                        <i data-lucide="users"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Gráficos (Evolución de Ingresos y Volumen de Sesiones) -->
+            <section class="charts-grid">
+                <!-- Gráfico de Barras: Evolución de Ingresos -->
+                <div class="chart-card">
+                    <div class="chart-info">
+                        <h3><i data-lucide="bar-chart-3"></i> Evolución de Ingresos</h3>
+                        <p>Facturación bruta acumulada por mes</p>
+                    </div>
+                    <div class="chart-visual-container">
+                        <!-- Simulación del gráfico de barras con CSS puro -->
+                        <div class="bar-chart-mockup">
+                            <div class="chart-y-axis">
+                                <span>6200</span><span>4650</span><span>3100</span><span>1550</span><span>0</span>
+                            </div>
+                            <div class="bars-area">
+                                <div class="bar-wrapper"><div class="bar" style="height: 65%;"></div><span class="bar-label">Ene</span></div>
+                                <div class="bar-wrapper"><div class="bar" style="height: 58%;"></div><span class="bar-label">Feb</span></div>
+                                <div class="bar-wrapper"><div class="bar" style="height: 82%;"></div><span class="bar-label">Mar</span></div>
+                                <div class="bar-wrapper"><div class="bar" style="height: 78%;"></div><span class="bar-label">Abr</span></div>
+                                <div class="bar-wrapper"><div class="bar" style="height: 90%;"></div><span class="bar-label">May</span></div>
+                                <div class="bar-wrapper"><div class="bar" style="height: 100%;"></div><span class="bar-label">Jun</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Línea: Volumen de Sesiones -->
+                <div class="chart-card">
+                    <div class="chart-info">
+                        <h3><i data-lucide="trending-up"></i> Volumen de Sesiones</h3>
+                        <p>Total de citas fisioterapéuticas completadas</p>
+                    </div>
+                    <div class="chart-visual-container">
+                        <!-- Simulación analógica del gráfico de curvas mediante SVG integrado -->
+                        <div class="line-chart-mockup">
+                            <div class="chart-y-axis">
+                                <span>180</span><span>160</span><span>140</span><span>120</span><span>100</span>
+                            </div>
+                            <div class="line-area">
+                                <svg viewBox="0 0 500 200" class="svg-graph">
+                                    <path d="M 20 130 C 70 170, 110 180, 150 140 C 200 80, 240 100, 280 130 C 340 160, 400 60, 480 20" fill="none" stroke="#9d2466" stroke-width="3"></path>
+                                    <circle cx="20" cy="130" r="4" fill="#9d2466"></circle>
+                                    <circle cx="102" cy="162" r="4" fill="#9d2466"></circle>
+                                    <circle cx="185" cy="120" r="4" fill="#9d2466"></circle>
+                                    <circle cx="268" cy="136" r="4" fill="#9d2466"></circle>
+                                    <circle cx="351" cy="100" r="4" fill="#9d2466"></circle>
+                                    <circle cx="480" cy="20" r="4" fill="#9d2466"></circle>
+                                </svg>
+                                <div class="line-labels">
+                                    <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Tabla de Desglose Detallado -->
+            <section class="details-table-section">
+                <div class="table-section-header">
+                    <div class="table-section-title">
+                        <i data-lucide="text-quote"></i>
+                        <div>
+                            <h3>Desglose Detallado</h3>
+                            <p>Datos brutos procesados para el periodo seleccionado</p>
+                        </div>
+                    </div>
+                    <a href="#" class="link-view-all">Ver todos los datos</a>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="report-data-table">
+                        <thead>
+                            <tr>
+                                <th>Mes</th>
+                                <th>Ingresos Brutos</th>
+                                <th>Sesiones</th>
+                                <th>Ticket Promedio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ene</td><td>4,200 €</td><td>120</td><td>35.00 €</td></tr>
+                            <tr><td>Feb</td><td>3,800 €</td><td>110</td><td>34.55 €</td></tr>
+                            <tr><td>Mar</td><td>5,100 €</td><td>145</td><td>35.17 €</td></tr>
+                            <tr><td>Abr</td><td>4,900 €</td><td>130</td><td>37.69 €</td></tr>
+                            <tr><td>May</td><td>5,600 €</td><td>160</td><td>35.00 €</td></tr>
+                            <tr><td>Jun</td><td>6,200 €</td><td>180</td><td>34.44 €</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección Inferior: Rendimiento por Especialista -->
+            <section class="staff-performance-section">
+                <h3 class="section-subtitle">Rendimiento por Especialista</h3>
+                <div class="staff-grid">
+                    <!-- Card 1 -->
+                    <div class="staff-card">
+                        <div class="staff-icon"><i data-lucide="user"></i></div>
+                        <h4>Dr. García</h4>
+                        <span>Fisioterapeuta</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                        <span class="progress-label">45 pacientes atendidos</span>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="staff-card">
+                        <div class="staff-icon"><i data-lucide="user"></i></div>
+                        <h4>Dra. López</h4>
+                        <span>Fisioterapeuta</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 70%;"></div>
+                        </div>
+                        <span class="progress-label">38 pacientes atendidos</span>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="staff-card">
+                        <div class="staff-icon"><i data-lucide="user"></i></div>
+                        <h4>Dr. Martínez</h4>
+                        <span>Fisioterapeuta</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 58%;"></div>
+                        </div>
+                        <span class="progress-label">32 pacientes atendidos</span>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="staff-card">
+                        <div class="staff-icon"><i data-lucide="user"></i></div>
+                        <h4>Dra. Ruiz</h4>
+                        <span>Fisioterapeuta</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 50%;"></div>
+                        </div>
+                        <span class="progress-label">29 pacientes atendidos</span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer de la Aplicación -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <a href="Login.html" class="logout-btn"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <span class="footer-copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</span>
+            <div class="footer-links">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Soporte</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar iconos de Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>

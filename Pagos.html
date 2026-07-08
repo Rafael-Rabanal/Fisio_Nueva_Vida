@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio Nueva Vida - Gestión de Pagos (Full Width)</title>
+    <link rel="stylesheet" href="Styles/Pagos.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
+
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="activity" class="logo-icon"></i>
+                <span>Fisio Nueva Vida</span>
+            </div>
+        </div>
+        <nav class="nav-center">
+            <a href="Index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="pacientes.html" class="nav-item"><i data-lucide="users"></i> Pacientes</a>
+            <a href="Agenda.html" class="nav-item"><i data-lucide="calendar"></i> Agenda</a>
+            <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
+            <a href="#" class="nav-item active"><i data-lucide="credit-card"></i> Pagos</a>
+            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn-notification">
+                <i data-lucide="bell"></i>
+                <span class="badge-dot"></span>
+            </button>
+            <div class="user-profile-wrapper">
+                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
+                <label for="user-menu-toggle" class="dropdown-overlay"></label>
+                <label for="user-menu-toggle" class="user-profile dropdown">
+                    <div class="user-info">
+                        <span class="username">Admin Usuario</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                </label>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Tamaño de Letra</span>
+                        <div class="font-size-options">
+                            <button type="button" class="btn-font-size">A-</button>
+                            <button type="button" class="btn-font-size active">A</button>
+                            <button type="button" class="btn-font-size">A+</button>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Idioma</span>
+                        <button type="button" class="btn-lang">
+                            <i data-lucide="languages" class="lang-icon"></i>
+                            <span>Switch to English</span>
+                        </button>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-section">
+                        <span class="dropdown-section-title">Aspecto</span>
+                        <label for="dark-mode-toggle" class="btn-dark-mode">
+                            <i data-lucide="moon" class="dark-mode-icon"></i>
+                            <span class="dark-mode-text-span">Modo Oscuro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <section class="page-header">
+            <div class="header-title">
+                <h1>Gestión de Pagos y Facturación</h1>
+                <p>Monitoreo de ingresos, control de recibos emitidos y estados de cuentas de los pacientes.</p>
+            </div>
+            <button class="btn-add-payment">
+                <i data-lucide="plus"></i> Registrar Nuevo Pago
+            </button>
+        </section>
+
+        <section class="summary-widgets-grid">
+            <div class="widget-mini-card">
+                <div class="widget-icon-box box-green"><i data-lucide="trending-up"></i></div>
+                <div class="widget-data">
+                    <span class="widget-label">Recaudación del Día</span>
+                    <span class="widget-value">S/ 1,900.00</span>
+                </div>
+            </div>
+            <div class="widget-mini-card">
+                <div class="widget-icon-box box-amber"><i data-lucide="clock"></i></div>
+                <div class="widget-data">
+                    <span class="widget-label">Saldos Pendientes</span>
+                    <span class="widget-value">S/ 580.00</span>
+                </div>
+            </div>
+            <div class="widget-mini-card">
+                <div class="widget-icon-box box-purple"><i data-lucide="receipt"></i></div>
+                <div class="widget-data">
+                    <span class="widget-label">Transacciones Totales</span>
+                    <span class="widget-value">51 Recibos</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-bar">
+            <div class="search-wrapper">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" placeholder="Buscar por Paciente, Fisioterapeuta o N° de Recibo...">
+            </div>
+            <div class="filter-buttons">
+                <button class="btn-secondary"><i data-lucide="calendar"></i> Filtrar Fecha</button>
+                <button class="btn-secondary"><i data-lucide="download"></i> Exportar Caja</button>
+                <button class="btn-secondary"><i data-lucide="sliders-horizontal"></i> Filtros</button>
+            </div>
+        </section>
+
+        <section class="table-card">
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>N° Recibo</th>
+                            <th>Paciente</th>
+                            <th>Fisioterapeuta Asignado</th>
+                            <th>Fecha / Hora</th>
+                            <th>Método de Pago</th>
+                            <th>Monto Total</th>
+                            <th>Estado</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0420</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Carlos Mendoza Tafur</span>
+                                    <span class="person-sub">DNI 472819XX</span>
+                                </div>
+                            </td>
+                            <td>Dr. Alejandro Moreno</td>
+                            <td>17 Jun 2026 - 09:15 AM</td>
+                            <td><span class="pay-method"><i data-lucide="smartphone"></i> Yape</span></td>
+                            <td class="font-bold">S/ 120.00</td>
+                            <td><span class="status-badge badge-success"><i data-lucide="check-circle-2"></i> PAGADO</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Imprimir Recibo"><i data-lucide="printer"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0419</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">María Silva Arana</span>
+                                    <span class="person-sub">DNI 267182XX</span>
+                                </div>
+                            </td>
+                            <td>Dra. Beatriz Soler</td>
+                            <td>17 Jun 2026 - 08:30 AM</td>
+                            <td><span class="pay-method"><i data-lucide="credit-card"></i> Tarjeta POS</span></td>
+                            <td class="font-bold">S/ 150.00</td>
+                            <td><span class="status-badge badge-success"><i data-lucide="check-circle-2"></i> PAGADO</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Imprimir Recibo"><i data-lucide="printer"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0418</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Jorge Linares Cortegana</span>
+                                    <span class="person-sub">DNI 701928XX</span>
+                                </div>
+                            </td>
+                            <td>Lic. Fernando Gómez</td>
+                            <td>16 Jun 2026 - 06:45 PM</td>
+                            <td><span class="pay-method"><i data-lucide="banknote"></i> Efectivo</span></td>
+                            <td class="font-bold">S/ 90.00</td>
+                            <td><span class="status-badge badge-warning"><i data-lucide="alert-circle"></i> PENDIENTE</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Cobrar / Procesar"><i data-lucide="dollar-sign"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0417</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Ana Lozano Saldaña</span>
+                                    <span class="person-sub">DNI 419283XX</span>
+                                </div>
+                            </td>
+                            <td>Dra. Elena Vargas</td>
+                            <td>16 Jun 2026 - 04:20 PM</td>
+                            <td><span class="pay-method"><i data-lucide="landmark"></i> Transferencia</span></td>
+                            <td class="font-bold">S/ 180.00</td>
+                            <td><span class="status-badge badge-success"><i data-lucide="check-circle-2"></i> PAGADO</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Imprimir Recibo"><i data-lucide="printer"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0416</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Ricardo Vigo Quiroz</span>
+                                    <span class="person-sub">DNI 267381XX</span>
+                                </div>
+                            </td>
+                            <td>Dr. Alejandro Moreno</td>
+                            <td>16 Jun 2026 - 11:00 AM</td>
+                            <td><span class="pay-method"><i data-lucide="smartphone"></i> Plin</span></td>
+                            <td class="font-bold">S/ 120.00</td>
+                            <td><span class="status-badge badge-danger"><i data-lucide="x-circle"></i> ANULADO</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" disabled title="No disponible"><i data-lucide="printer"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0415</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Lucía Alva Bazán</span>
+                                    <span class="person-sub">DNI 451928XX</span>
+                                </div>
+                            </td>
+                            <td>Lic. Soraya Altamirano</td>
+                            <td>15 Jun 2026 - 05:10 PM</td>
+                            <td><span class="pay-method"><i data-lucide="smartphone"></i> Yape</span></td>
+                            <td class="font-bold">S/ 130.00</td>
+                            <td><span class="status-badge badge-success"><i data-lucide="check-circle-2"></i> PAGADO</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Imprimir Recibo"><i data-lucide="printer"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0414</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Roberto Bardales Cruz</span>
+                                    <span class="person-sub">DNI 092831XX</span>
+                                </div>
+                            </td>
+                            <td>Dr. Ricardo Beltrán</td>
+                            <td>15 Jun 2026 - 03:00 PM</td>
+                            <td><span class="pay-method"><i data-lucide="banknote"></i> Efectivo</span></td>
+                            <td class="font-bold">S/ 200.00</td>
+                            <td><span class="status-badge badge-warning"><i data-lucide="alert-circle"></i> PENDIENTE</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Cobrar / Procesar"><i data-lucide="dollar-sign"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0413</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Elena Rojas Peralta</span>
+                                    <span class="person-sub">DNI 458291XX</span>
+                                </div>
+                            </td>
+                            <td>Dra. Beatriz Soler</td>
+                            <td>15 Jun 2026 - 10:45 AM</td>
+                            <td><span class="pay-method"><i data-lucide="smartphone"></i> Yape</span></td>
+                            <td class="font-bold">S/ 140.00</td>
+                            <td><span class="status-badge badge-success"><i data-lucide="check-circle-2"></i> PAGADO</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Imprimir Recibo"><i data-lucide="printer"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0412</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Javier Gonzales Ordoñez</span>
+                                    <span class="person-sub">DNI 082736XX</span>
+                                </div>
+                            </td>
+                            <td>Lic. Carlos Ruiz</td>
+                            <td>14 Jun 2026 - 04:15 PM</td>
+                            <td><span class="pay-method"><i data-lucide="landmark"></i> Transferencia</span></td>
+                            <td class="font-bold">S/ 160.00</td>
+                            <td><span class="status-badge badge-warning"><i data-lucide="alert-circle"></i> PENDIENTE</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Cobrar / Procesar"><i data-lucide="dollar-sign"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-mono">#REC-2026-0411</td>
+                            <td>
+                                <div class="person-cell">
+                                    <span class="person-name">Sofía Benavides Medina</span>
+                                    <span class="person-sub">DNI 721839XX</span>
+                                </div>
+                            </td>
+                            <td>Dra. Elena Vargas</td>
+                            <td>14 Jun 2026 - 11:30 AM</td>
+                            <td><span class="pay-method"><i data-lucide="credit-card"></i> Tarjeta POS</span></td>
+                            <td class="font-bold">S/ 120.00</td>
+                            <td><span class="status-badge badge-success"><i data-lucide="check-circle-2"></i> PAGADO</span></td>
+                            <td>
+                                <div class="action-buttons-group">
+                                    <button class="btn-action" title="Imprimir Recibo"><i data-lucide="printer"></i></button>
+                                    <button class="btn-action" title="Ver Detalle"><i data-lucide="eye"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-pagination">
+                <span class="pagination-info">Mostrando 10 de 145 transacciones financieras</span>
+                <div class="pagination-controls">
+                    <button class="btn-pagination-nav" disabled>Anterior</button>
+                    <button class="btn-pagination-nav">Siguiente <i data-lucide="chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
+            <div class="footer-policies">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Soporte</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Inicializar iconos Lucide automáticamente
+        lucide.createIcons();
+    </script>
+</body>
+</html>

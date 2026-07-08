@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-main: #fcfafb;
+    --bg-card: #ffffff;
+    --primary: #9d2466; /* Color corporativo Guinda */
+    --primary-light: #fbeff4;
+    --text-main: #333333;
+    --text-muted: #7e7e82;
+    --border-color: #efe9ec;
+    --border-input: #ced4da;
+    
+    /* Paleta semántica financiera */
+    --success-bg: #dcfce7;
+    --success-txt: #166534;
+    --warning-bg: #fef3c7;
+    --warning-txt: #92400e;
+    --danger-bg: #fee2e2;
+    --danger-txt: #991b1b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding-top: 70px;
+    padding-bottom: 55px;
+}
+
+/* --- NAVBAR SUPERIOR PANTALLA COMPLETA --- */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 70px;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    z-index: 1000;
+}
+.logo { display: flex; align-items: center; gap: 8px; color: var(--primary); font-weight: 700; font-size: 19px; }
+.logo-icon { width: 26px; height: 26px; }
+.nav-center { display: flex; gap: 10px; }
+.nav-item {
+    text-decoration: none; color: var(--text-muted); font-size: 13.5px; font-weight: 500;
+    display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 6px; transition: all 0.2s;
+    white-space: nowrap;
+}
+.nav-item i { width: 16px; height: 16px; }
+.nav-item:hover, .nav-item.active { color: var(--primary); background-color: var(--primary-light); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.btn-notification { background: none; border: none; color: var(--primary); cursor: pointer; position: relative; }
+.badge-dot { position: absolute; top: 1px; right: 1px; width: 6px; height: 6px; background-color: #ef4444; border-radius: 50%; }
+.user-profile { display: flex; align-items: center; gap: 12px; border-left: 1px solid #eee; padding-left: 16px; }
+.user-info { display: flex; flex-direction: column; text-align: right; }
+.username { font-size: 13px; font-weight: 600; }
+.user-role { font-size: 11px; color: var(--text-muted); }
+.avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+
+/* --- CONTENEDOR DE PANTALLA COMPLETA --- */
+.page-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+/* Cabecera Interna */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.header-title h1 { font-size: 26px; color: #7a1548; font-weight: 700; letter-spacing: -0.5px; }
+.header-title p { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+
+.btn-add-payment {
+    background-color: var(--primary); border: none; color: #ffffff;
+    padding: 11px 22px; border-radius: 6px; font-weight: 600; font-size: 13.5px;
+    display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(157, 36, 102, 0.15);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.btn-add-payment:hover { background-color: #831c54; }
+.btn-add-payment i { width: 16px; height: 16px; }
+
+/* --- BLOQUES DE MÉTRICAS (FINANZAS DE CONTROL) --- */
+.summary-widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.widget-mini-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+}
+.widget-icon-box {
+    width: 44px; height: 44px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.widget-icon-box i { width: 20px; height: 20px; }
+.box-green { background-color: #e6fcf5; color: #0ca678; }
+.box-amber { background-color: #fff9db; color: #f59f00; }
+.box-purple { background-color: #f3f0ff; color: #748ffc; }
+
+/* Corrección elástica para textos financieros largos */
+.widget-data { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.widget-label { font-size: 12px; color: var(--text-muted); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.widget-value { font-size: 20px; font-weight: 700; color: #222; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* --- FILTROS DE BÚSQUEDA --- */
+.filters-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.search-wrapper { position: relative; flex-grow: 1; max-width: 450px; min-width: 0; }
+.search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: #9aa0a6; }
+.search-wrapper input {
+    width: 100%; height: 42px; padding-left: 42px; padding-right: 15px;
+    border: 1px solid var(--border-input); border-radius: 6px; font-size: 13.5px;
+    outline: none; transition: border-color 0.2s;
+}
+.search-wrapper input:focus { border-color: var(--primary); }
+
+.filter-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+.btn-secondary {
+    background-color: #ffffff; border: 1px solid #dcd1d6; color: #444444;
+    padding: 0 16px; height: 42px; border-radius: 6px; font-weight: 500; font-size: 13px;
+    display: flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.2s;
+    white-space: nowrap;
+}
+.btn-secondary:hover { background-color: #f7f5f6; border-color: #cbbcc3; }
+.btn-secondary i { width: 15px; height: 15px; color: #666; }
+
+/* --- TARJETA REPOSITORIO DE TABLA --- */
+.table-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.table-responsive { 
+    width: 100%; 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+    width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px;
+}
+.data-table th {
+    background-color: #faf7f8; color: var(--text-muted); font-weight: 600;
+    padding: 16px 24px; border-bottom: 1px solid var(--border-color);
+    text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+.data-table td {
+    padding: 16px 24px; border-bottom: 1px solid #f9f5f7; vertical-align: middle;
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background-color: #fffcfd; }
+
+/* Celdas especiales de datos con anchos mínimos de seguridad */
+.font-mono { font-family: monospace; font-size: 13px; color: #555; font-weight: 600; white-space: nowrap; }
+.font-bold { font-weight: 700; color: #111; white-space: nowrap; }
+.person-cell { display: flex; flex-direction: column; gap: 2px; min-width: 180px; }
+.person-name { font-weight: 600; color: #222; white-space: nowrap; }
+.person-sub { font-size: 11.5px; color: var(--text-muted); white-space: nowrap; }
+
+/* Métodos de Pago integrados */
+.pay-method { display: flex; align-items: center; gap: 6px; color: #444; font-weight: 500; white-space: nowrap; }
+.pay-method i { width: 15px; height: 15px; color: #777; flex-shrink: 0; }
+
+/* Estados Semánticos de Transacción */
+.status-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 12px; border-radius: 100px; font-size: 11.5px; font-weight: 700;
+    white-space: nowrap;
+}
+.status-badge i { width: 13px; height: 13px; flex-shrink: 0; }
+.badge-success { background-color: var(--success-bg); color: var(--success-txt); }
+.badge-warning { background-color: var(--warning-bg); color: var(--warning-txt); }
+.badge-danger { background-color: var(--danger-bg); color: var(--danger-txt); }
+
+/* Botoneras de interacción */
+.action-buttons-group { display: flex; gap: 8px; }
+.btn-action {
+    background: none; border: 1px solid #eedfe6; color: #666;
+    width: 32px; height: 32px; border-radius: 6px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+    flex-shrink: 0;
+}
+.btn-action:hover:not(:disabled) { background-color: var(--primary-light); color: var(--primary); border-color: var(--primary); }
+.btn-action:disabled { color: #ccc; border-color: #f1edf0; cursor: not-allowed; }
+.btn-action i { width: 14px; height: 14px; }
+
+/* --- PAGINACIÓN --- */
+.table-pagination {
+    padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--border-color); background-color: #ffffff;
+    gap: 15px;
+}
+.pagination-info { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+.pagination-controls { display: flex; gap: 8px; }
+.btn-pagination-nav {
+    background-color: #ffffff; border: 1px solid #e2d9dd; color: #444;
+    padding: 6px 14px; font-size: 12.5px; font-weight: 500; border-radius: 6px;
+    cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap;
+}
+.btn-pagination-nav:hover:not(:disabled) { background-color: #faf8f9; }
+.btn-pagination-nav:disabled { color: #ccc; border-color: #ebdbe1; cursor: not-allowed; }
+
+/* --- FOOTER GLOBAL FIJO (PANTALLA COMPLETA) --- */
+.main-footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 55px;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    z-index: 1000;
+}
+.logout-link { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.logout-link:hover { color: #831c54; }
+.footer-policies { display: flex; gap: 15px; }
+.footer-policies a { color: var(--text-muted); text-decoration: none; }
+.footer-policies a:hover { text-decoration: underline; color: var(--primary); }
+
+
+/* ==========================================================================
+   REGLAS RESPONSIVAS AJUSTADAS (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .navbar { padding: 0 20px; }
+    
+    /* Menú elástico deslizable para pantallas medianas */
+    .nav-center {
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav-center::-webkit-scrollbar { display: none; }
+
+    /* Estructura adaptada para los bloques financieros a dos columnas */
+    .summary-widgets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Asignar anchura mínima robusta a la tabla financiera para evitar truncados agresivos */
+    .data-table {
+        min-width: 900px;
+    }
+}
+
+@media (max-width: 768px) {
+    body { padding-top: 60px; padding-bottom: 0; }
+    .navbar { height: 60px; padding: 0 15px; }
+
+    /* Barra de navegación inferior móvil fija */
+    .nav-center {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        height: 60px;
+        background-color: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        padding: 0 10px;
+        z-index: 1020;
+        overflow-x: unset;
+    }
+
+    .nav-item {
+        flex-direction: column;
+        font-size: 10px;
+        gap: 4px;
+        padding: 6px 8px;
+    }
+
+    .user-info, .logo span, .user-profile { display: none; }
+
+    /* Margen de seguridad inferior modificado para liberar la barra táctil móvil */
+    .page-container { padding: 20px 15px 140px 15px; gap: 20px; }
+
+    /* Cabecera estructurada verticalmente */
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    .btn-add-payment {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Reducción de las tarjetas financieras a una sola columna */
+    .summary-widgets-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Reacomodo de la barra de filtros a bloques verticales */
+    .filters-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .search-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+    .filter-buttons {
+        width: 100%;
+    }
+    .filter-buttons .btn-secondary {
+        flex: 1;
+        justify-content: center;
+    }
+
+    /* Paginación elástica apilada */
+    .table-pagination {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    .pagination-controls {
+        width: 100%;
+    }
+    .pagination-controls .btn-pagination-nav {
+        flex: 1;
+        justify-content: center;
+    }
+
+    /* Desactivación fija del footer global */
+    .main-footer {
+        position: static;
+        height: auto;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 15px;
+        background-color: transparent;
+        border-top: none;
+    }
+    .footer-policies { justify-content: center; width: 100%; }
+}
+
+@media (max-width: 480px) {
+    /* Optimización de espacio en controles de paginación para pantallas de baja resolución */
+    .btn-pagination-nav span {
+        display: none;
+    }
+    .btn-pagination-nav {
+        padding: 8px 16px;
+    }
+}
+
+
+
+/* --- Estilos del Menú Desplegable de Usuario (Puro HTML y CSS) --- */
+.user-profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Ocultar checkbox */
+.dropdown-toggle-checkbox {
+    display: none !important;
+}
+
+.user-profile.dropdown {
+    position: relative;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Efecto hover en el disparador */
+.user-profile.dropdown:hover {
+    background-color: var(--border-light, #f5f0f2);
+}
+
+.dropdown-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted, #757575);
+    transition: transform 0.2s;
+}
+
+/* Overlay para cerrar al hacer clic fuera */
+.dropdown-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1500;
+    background: transparent;
+    cursor: default;
+}
+
+.dropdown-toggle-checkbox:checked ~ .dropdown-overlay {
+    display: block;
+}
+
+/* Menú Desplegable */
+.user-profile-wrapper .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    width: 220px;
+    background-color: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #f0e6eb);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(125, 28, 74, 0.08);
+    padding: 12px;
+    z-index: 2000;
+    cursor: default;
+    text-align: left;
+}
+
+/* Mostrar menú al estar checked */
+.dropdown-toggle-checkbox:checked ~ .dropdown-menu {
+    display: block;
+}
+
+/* Rotar flecha al estar checked */
+.dropdown-toggle-checkbox:checked ~ .user-profile.dropdown .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dropdown-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted, #757575);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.font-size-options {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-font-size {
+    flex: 1;
+    background-color: var(--bg-main, #fcfafb);
+    border: 1px solid var(--border-color, #f0e6eb);
+    color: var(--text-main, #2d2d2d);
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-font-size:hover {
+    border-color: var(--primary, #7d1c4a);
+    color: var(--primary, #7d1c4a);
+}
+
+.btn-font-size.active {
+    background-color: var(--primary, #7d1c4a);
+    border-color: var(--primary, #7d1c4a);
+    color: #ffffff;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--border-light, #f5f0f2);
+    margin: 10px 0;
+}
+
+.btn-lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background-color: var(--bg-main, #fcfafb);
+    border: 1px solid var(--border-color, #f0e6eb);
+    color: var(--text-main, #2d2d2d);
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-lang:hover {
+    background-color: var(--primary-light, #f6ebf0);
+    border-color: var(--primary, #7d1c4a);
+}
+
+.lang-icon {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* --- Modo Oscuro (Pure HTML/CSS con :has) --- */
+.dark-mode-checkbox {
+    display: none !important;
+}
+
+body:has(.dark-mode-checkbox:checked) {
+    /* Base theme variables */
+    --bg-main: #121214 !important;
+    --bg-card: #1e1e24 !important;
+    --text-main: #e2e2e9 !important;
+    --text-muted: #9ba1ad !important;
+    --border-color: #2e303d !important;
+    --border-light: #252630 !important;
+    --primary-light: #3a1525 !important;
+    
+    /* Reportes variables */
+    --bg-system: #121214 !important;
+    --bg-white: #1e1e24 !important;
+    --text-dark: #e2e2e9 !important;
+    --border-subtle: #2e303d !important;
+    --border-dashed: #252630 !important;
+    
+    /* RegistrarPaciente / Form variables */
+    --text-heading: #ffffff !important;
+    --input-border: #444455 !important;
+    
+    /* Pacientes state badges */
+    --badge-active-bg: #1b3821 !important;
+    --badge-active-text: #86efac !important;
+    --badge-active-border: #22c55e !important;
+    --badge-inactive-bg: #2a2a2a !important;
+    --badge-inactive-text: #d1d5db !important;
+    --badge-inactive-border: #4b5563 !important;
+}
+
+/* Modificaciones específicas en Modo Oscuro */
+body:has(.dark-mode-checkbox:checked) .card,
+body:has(.dark-mode-checkbox:checked) .kpi-card,
+body:has(.dark-mode-checkbox:checked) .table-card,
+body:has(.dark-mode-checkbox:checked) .actions-card,
+body:has(.dark-mode-checkbox:checked) .report-sidebar,
+body:has(.dark-mode-checkbox:checked) .appointments-card,
+body:has(.dark-mode-checkbox:checked) .login-card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+}
+
+body:has(.dark-mode-checkbox:checked) input,
+body:has(.dark-mode-checkbox:checked) select,
+body:has(.dark-mode-checkbox:checked) textarea {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+body:has(.dark-mode-checkbox:checked) .calendar-table th,
+body:has(.dark-mode-checkbox:checked) .calendar-table td {
+    border-color: var(--border-color) !important;
+}
+
+body:has(.dark-mode-checkbox:checked) .calendar-table th {
+    background-color: var(--bg-main) !important;
+}
+
+/* Estilo del botón de modo oscuro */
+.btn-dark-mode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background-color: var(--bg-main, #fcfafb);
+    border: 1px solid var(--border-color, #f0e6eb);
+    color: var(--text-main, #2d2d2d);
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-dark-mode:hover {
+    background-color: var(--primary-light, #f6ebf0);
+    border-color: var(--primary, #7d1c4a);
+    color: var(--primary, #7d1c4a);
+}
+
+body:has(.dark-mode-checkbox:checked) .btn-dark-mode {
+    background-color: var(--primary, #7d1c4a) !important;
+    border-color: var(--primary, #7d1c4a) !important;
+    color: #ffffff !important;
+}
+
+body:has(.dark-mode-checkbox:checked) .dark-mode-text-span::after {
+    content: " (Activo)";
+}
+
+body:has(.dark-mode-checkbox:checked) .status-badge.confirmado {
+    background-color: #1b3821 !important;
+    color: #a3e635 !important;
+    border-color: #22c55e !important;
+}
+body:has(.dark-mode-checkbox:checked) .status-badge.en-camino {
+    background-color: #3b2314 !important;
+    color: #fb923c !important;
+    border-color: #ea580c !important;
+}
+body:has(.dark-mode-checkbox:checked) .status-badge.pendiente {
+    background-color: #2a2a2a !important;
+    color: #9ca3af !important;
+    border-color: #4b5563 !important;
+}
