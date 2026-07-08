@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="Styles/Agenda.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
     <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
 
@@ -19,7 +21,7 @@
             </div>
         </div>
         <nav class="nav-center">
-            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
             <a href="pacientes.html" class="nav-item"><i data-lucide="users"></i> Pacientes</a>
             <a href="#" class="nav-item active"><i data-lucide="calendar"></i> Agenda</a>
             <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
@@ -39,7 +41,8 @@
                         <span class="username">Admin Usuario</span>
                         <span class="user-role">Administrador</span>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                        alt="Avatar" class="avatar">
                     <i data-lucide="chevron-down" class="dropdown-icon"></i>
                 </label>
                 <div class="dropdown-menu">
@@ -74,7 +77,7 @@
 
     <!-- Contenedor de Pantalla Completa -->
     <main class="page-container">
-        
+
         <!-- Cabecera de la Agenda -->
         <section class="page-header">
             <div class="header-title">
@@ -90,7 +93,7 @@
                 <button class="btn-view active">Semana</button>
                 <button class="btn-view">Mes</button>
             </div>
-            
+
             <div class="date-navigator">
                 <button class="btn-nav-arrow"><i data-lucide="chevron-left"></i></button>
                 <span class="date-range-text">18 - 24 Mayo, 2026</span>
@@ -102,14 +105,14 @@
                 <button class="btn-action-outline"><i data-lucide="sliders-horizontal"></i> Filtros</button>
                 <button class="btn-action-outline"><i data-lucide="download"></i> Exportar</button>
                 <button class="btn-action-primary" onclick="window.location.href='RegistrarCita.html'">
-                <i data-lucide="plus"></i> Nueva Cita
+                    <i data-lucide="plus"></i> Nueva Cita
                 </button>
             </div>
         </section>
 
         <!-- Layout de Dos Columnas (Cuadrícula Semanal + Sidebar) -->
         <div class="agenda-layout-grid">
-            
+
             <!-- Columna del Calendario Semanal Completo -->
             <div class="calendar-grid-container">
                 <table class="calendar-table">
@@ -203,17 +206,30 @@
                         <!-- 12:00 -->
                         <tr>
                             <td class="row-time">12:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 13:00 -->
                         <tr>
                             <td class="row-time">13:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 14:00 -->
                         <tr>
                             <td class="row-time">14:00</td>
-                            <td></td><td></td>
+                            <td></td>
+                            <td></td>
                             <td>
                                 <div class="appointment-card border-maroon">
                                     <h4>Lucía Fernández</h4>
@@ -221,37 +237,76 @@
                                     <span class="app-desc">Masaje Terape</span>
                                 </div>
                             </td>
-                            <td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 15:00 -->
                         <tr>
                             <td class="row-time">15:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 16:00 -->
                         <tr>
                             <td class="row-time">16:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 17:00 -->
                         <tr>
                             <td class="row-time">17:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 18:00 -->
                         <tr>
                             <td class="row-time">18:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 19:00 -->
                         <tr>
                             <td class="row-time">19:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <!-- 20:00 -->
                         <tr>
                             <td class="row-time">20:00</td>
-                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
@@ -259,7 +314,7 @@
 
             <!-- Columna Lateral Derecha (Sidebar Informativo) -->
             <div class="sidebar-column">
-                
+
                 <!-- Tarjeta: Cita Seleccionada -->
                 <div class="sidebar-card details-card">
                     <div class="card-badge-header">
@@ -273,7 +328,8 @@
                     </div>
 
                     <div class="treatment-box">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Fisioterapeuta" class="treatment-avatar">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                            alt="Fisioterapeuta" class="treatment-avatar">
                         <div class="treatment-text">
                             <span class="treatment-label">TRATAMIENTO</span>
                             <span class="treatment-value">Rehabilitación Lumbar</span>
@@ -313,7 +369,8 @@
                 <!-- Doctor 1 -->
                 <div class="doctor-availability-card">
                     <div class="doc-header">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=100&auto=format&fit=crop&q=80" alt="Doctor" class="doc-avatar">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=100&auto=format&fit=crop&q=80"
+                            alt="Doctor" class="doc-avatar">
                         <div class="doc-title-info">
                             <h4>Dra. Elena R.</h4>
                             <span class="status-indicator text-green">OCUPADA (80%)</span>
@@ -338,7 +395,8 @@
                 <!-- Doctor 2 -->
                 <div class="doctor-availability-card">
                     <div class="doc-header">
-                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=100&auto=format&fit=crop&q=80" alt="Doctor" class="doc-avatar">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=100&auto=format&fit=crop&q=80"
+                            alt="Doctor" class="doc-avatar">
                         <div class="doc-title-info">
                             <h4>Dr. Marco A.</h4>
                             <span class="status-indicator text-orange">MEDIA (50%)</span>
@@ -352,7 +410,7 @@
 
         <!-- Footer Global -->
         <footer class="main-footer">
-            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <a href="index.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
             <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
             <div class="footer-policies">
                 <a href="#">Términos</a>
@@ -367,4 +425,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>

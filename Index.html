@@ -3,305 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fisio Nueva Vida - Dashboard</title>
-    <link rel="stylesheet" href="Styles/Index.css">
+    <title>Acceso al Sistema - Fisio Nueva Vida</title>
+    <link rel="stylesheet" href="Styles/login.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
 
-    <!-- Barra de Navegación Fija -->
-    <header class="navbar">
-        <div class="nav-left">
-            <div class="logo">
-                <i data-lucide="activity" class="logo-icon"></i>
-                <span>Fisio Nueva Vida</span>
-            </div>
-        </div>
-        <nav class="nav-center">
-            <a href="#" class="nav-item active"><i data-lucide="layout-dashboard"></i> Dashboard</a>
-            <a href="pacientes.html" class="nav-item"><i data-lucide="users"></i> Pacientes</a>
-            <a href="Agenda.html" class="nav-item"><i data-lucide="calendar"></i> Agenda</a>
-            <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
-            <a href="Pagos.html" class="nav-item"><i data-lucide="credit-card"></i> Pagos</a>
-            <a href="Reportes.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Reportes</a>
-        </nav>
-        <div class="nav-right">
-            <button class="btn-notification">
-                <i data-lucide="bell"></i>
-                <span class="badge-dot"></span>
-            </button>
-            <div class="user-profile-wrapper">
-                <input type="checkbox" id="user-menu-toggle" class="dropdown-toggle-checkbox">
-                <label for="user-menu-toggle" class="dropdown-overlay"></label>
-                <label for="user-menu-toggle" class="user-profile dropdown">
-                    <div class="user-info">
-                        <span class="username">Admin Usuario</span>
-                        <span class="user-role">Administrador</span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
-                    <i data-lucide="chevron-down" class="dropdown-icon"></i>
-                </label>
-                <div class="dropdown-menu">
-                    <div class="dropdown-section">
-                        <span class="dropdown-section-title">Tamaño de Letra</span>
-                        <div class="font-size-options">
-                            <button type="button" class="btn-font-size">A-</button>
-                            <button type="button" class="btn-font-size active">A</button>
-                            <button type="button" class="btn-font-size">A+</button>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-section">
-                        <span class="dropdown-section-title">Idioma</span>
-                        <button type="button" class="btn-lang">
-                            <i data-lucide="languages" class="lang-icon"></i>
-                            <span>Switch to English</span>
-                        </button>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-section">
-                        <span class="dropdown-section-title">Aspecto</span>
-                        <label for="dark-mode-toggle" class="btn-dark-mode">
-                            <i data-lucide="moon" class="dark-mode-icon"></i>
-                            <span class="dark-mode-text-span">Modo Oscuro</span>
-                        </label>
-                    </div>
+    <main class="login-container">
+        <div class="login-card">
+            <header class="login-header">
+                <div class="logo-icon">
+                    <i data-lucide="activity"></i>
                 </div>
-            </div>
-        </div>
-    </header>
+                <h1>Fisio Nueva Vida</h1>
+                <h2>Acceso al Sistema</h2>
+                <p class="subtitle">Ingrese sus credenciales para gestionar la clínica</p>
+            </header>
 
-    <!-- Panel de Contenido Principal -->
-    <main class="dashboard-container">
-        
-        <section class="welcome-section">
-            <h1>Dashboard</h1>
-            <p>Bienvenido, aquí tienes el resumen de hoy, 17 de junio.</p>
-        </section>
-
-        <!-- Tarjetas KPI -->
-        <section class="kpi-grid">
-            <div class="kpi-card">
-                <div class="kpi-content">
-                    <span class="kpi-title">PACIENTES TOTALES</span>
-                    <span class="kpi-value">1,284</span>
-                    <span class="kpi-trend trend-up"><i data-lucide="arrow-up"></i> 12% <small>vs. mes anterior</small></span>
-                </div>
-                <div class="kpi-icon-wrapper color-1"><i data-lucide="users"></i></div>
+            <div class="error-banner">
+                <i data-lucide="alert-circle" class="error-icon"></i>
+                <p>Usuario o contraseña incorrectos. Por favor, intente de nuevo.</p>
             </div>
 
-            <div class="kpi-card">
-                <div class="kpi-content">
-                    <span class="kpi-title">CITAS PARA HOY</span>
-                    <span class="kpi-value">24</span>
-                </div>
-                <div class="kpi-icon-wrapper color-2"><i data-lucide="clock"></i></div>
-            </div>
-
-            <div class="kpi-card">
-                <div class="kpi-content">
-                    <span class="kpi-title">INGRESOS SEMANALES</span>
-                    <span class="kpi-value">$3,850</span>
-                    <span class="kpi-trend trend-up"><i data-lucide="arrow-up"></i> 8% <small>vs. mes anterior</small></span>
-                </div>
-                <div class="kpi-icon-wrapper color-3"><span>$</span></div>
-            </div>
-
-            <div class="kpi-card">
-                <div class="kpi-content">
-                    <span class="kpi-title">SESIONES REALIZADAS</span>
-                    <span class="kpi-value">12</span>
-                    <span class="kpi-trend trend-down"><i data-lucide="arrow-down"></i> 3% <small>vs. mes anterior</small></span>
-                </div>
-                <div class="kpi-icon-wrapper color-4"><i data-lucide="activity"></i></div>
-            </div>
-        </section>
-
-        <!-- Sección de Gráficos y Agenda de Citas -->
-        <div class="main-layout-grid">
-            <div class="charts-column">
-                <div class="card chart-card">
-                    <div class="card-header">
-                        <div>
-                            <h3>Tendencia de Sesiones</h3>
-                            <p class="card-subtitle">Volumen de terapias diarias esta semana</p>
-                        </div>
-                    </div>
-                    <div class="chart-placeholder line-chart">
-                        <svg viewBox="0 0 600 160" width="100%" height="100%">
-                            <path d="M 0 100 Q 100 60 200 80 T 400 30 T 600 120" fill="none" stroke="#9d2466" stroke-width="3"/>
-                            <path d="M 0 120 Q 100 90 200 85 T 400 50 T 600 130" fill="none" stroke="#9d2466" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
-                        </svg>
-                        <div class="chart-timeline">
-                            <span>Lun</span><span>Mar</span><span>Mie</span><span>Jue</span><span>Vie</span><span>Sab</span>
-                        </div>
+            <form class="login-form">
+                <div class="input-group">
+                    <label for="username">Correo Electrónico o Usuario</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="user" class="field-icon"></i>
+                        <input type="text" id="username" value="ejemplo@fisio.com" required>
                     </div>
                 </div>
 
-                <div class="card chart-card">
-                    <div class="card-header">
-                        <div>
-                            <h3>Resumen de Ingresos</h3>
-                            <p class="card-subtitle">Crecimiento semestral en ventas de servicios</p>
-                        </div>
-                    </div>
-                    <div class="chart-placeholder bar-chart">
-                        <div class="bar-container"><div class="bar" style="height: 60%;"></div><span>Ene</span></div>
-                        <div class="bar-container"><div class="bar" style="height: 75%;"></div><span>Feb</span></div>
-                        <div class="bar-container"><div class="bar" style="height: 65%;"></div><span>Mar</span></div>
-                        <div class="bar-container"><div class="bar" style="height: 85%;"></div><span>Abr</span></div>
-                        <div class="bar-container"><div class="bar" style="height: 80%;"></div><span>May</span></div>
-                        <div class="bar-container"><div class="bar" style="height: 95%;"></div><span>Jun</span></div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="lock" class="field-icon"></i>
+                        <input type="password" id="password" value="password123" required>
                     </div>
                 </div>
-            </div>
 
-            <div class="sidebar-column">
-                <div class="card appointments-card">
-                    <div class="card-header flex-header">
-                        <h3>Próximas Citas</h3>
-                        <a href="#" class="card-link">Ver Agenda <i data-lucide="chevron-right"></i></a>
-                    </div>
-                    <p class="card-subtitle margin-bottom">Programación para el resto del día</p>
-
-                    <div class="appointment-list">
-                        <div class="appointment-item">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80" alt="Paciente" class="patient-avatar">
-                            <div class="appointment-info">
-                                <h4>Carlos Mendoza</h4>
-                                <span>Fisioterapia Deportiva</span>
-                            </div>
-                            <div class="appointment-time-status">
-                                <span class="time"><i data-lucide="clock"></i> 09:00 AM</span>
-                                <span class="status-badge confirmado">Confirmado</span>
-                            </div>
-                        </div>
-                        <div class="appointment-item">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80" alt="Paciente" class="patient-avatar">
-                            <div class="appointment-info">
-                                <h4>Lucía Fernández</h4>
-                                <span>Rehabilitación Post-Op</span>
-                            </div>
-                            <div class="appointment-time-status">
-                                <span class="time"><i data-lucide="clock"></i> 10:30 AM</span>
-                                <span class="status-badge en-camino">En camino</span>
-                            </div>
-                        </div>
-                        <div class="appointment-item">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80" alt="Paciente" class="patient-avatar">
-                            <div class="appointment-info">
-                                <h4>Roberto Gómez</h4>
-                                <span>Masaje Terapéutico</span>
-                            </div>
-                            <div class="appointment-time-status">
-                                <span class="time"><i data-lucide="clock"></i> 11:15 AM</span>
-                                <span class="status-badge pendiente">Pendiente</span>
-                            </div>
-                        </div>
-                        <div class="appointment-item">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80" alt="Paciente" class="patient-avatar">
-                            <div class="appointment-info">
-                                <h4>Elena Rivas</h4>
-                                <span>Punción Seca</span>
-                            </div>
-                            <div class="appointment-time-status">
-                                <span class="time"><i data-lucide="clock"></i> 12:00 PM</span>
-                                <span class="status-badge confirmado">Confirmado</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn-additional-appointments">6 citas adicionales en la tarde</button>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#" class="forgot-password">¿Olvidó su contraseña?</a>
                 </div>
-            </div>
+
+                <button type="submit" class="btn-submit">Iniciar sesión</button>
+            </form>
+
+            <footer class="card-footer">
+                <p>¿No tiene acceso? <a href="#">Contacte al administrador</a></p>
+            </footer>
         </div>
 
-        <!-- Tabla y Acciones Rápidas -->
-        <div class="bottom-layout-grid">
-            <div class="card table-card">
-                <div class="card-header flex-header">
-                    <div>
-                        <h3>Pacientes Recientes</h3>
-                        <p class="card-subtitle">Últimas interacciones registradas en el sistema</p>
-                    </div>
-                    <!-- MODIFICACIÓN: También lleva a la lista completa -->
-                    <button class="btn-outline" onclick="window.location.href='pacientes.html'">Ver Lista Completa</button>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Edad</th>
-                                <th>Tratamiento</th>
-                                <th>Última Visita</th>
-                                <th style="text-align: right;">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="font-semibold">Ana Martínez</td>
-                                <td>24 años</td>
-                                <td>Recuperación de Rodilla</td>
-                                <td>Hace 2 horas</td>
-                                <td style="text-align: right;"><button class="btn-actions"><i data-lucide="more-horizontal"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">Jorge Soto</td>
-                                <td>45 años</td>
-                                <td>Tratamiento Lumbar</td>
-                                <td>Hace 4 horas</td>
-                                <td style="text-align: right;"><button class="btn-actions"><i data-lucide="more-horizontal"></i></button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <footer class="global-footer">
+            <p>© 2026 Sistema de Gestión Fisio Nueva Vida v1.0</p>
+            <div class="footer-links">
+                <a href="#">Términos de servicio</a>
+                <span class="divider">•</span>
+                <a href="#">Soporte Técnico</a>
             </div>
-
-<div class="card actions-card">
-                <div class="card-header">
-                    <h3>Acciones Rápidas</h3>
-                    <p class="card-subtitle margin-bottom">Accesos directos a tareas comunes</p>
-                </div>
-                <div class="actions-grid">
-                    <button class="action-btn" onclick="window.location.href='RegistrarPaciente.html'">
-                        <i data-lucide="user-plus"></i>
-                        <span>Nuevo Paciente</span>
-                    </button>
-                    <button class="action-btn" onclick="window.location.href='RegistrarCita.html'">
-                        <i data-lucide="calendar-plus"></i>
-                        <span>Agendar Cita</span>
-                    </button>
-                    <button class="action-btn" onclick="window.location.href='Pagos.html'">
-                        <i data-lucide="file-text"></i>
-                        <span>Pagos</span>
-                    </button>
-                    <button class="action-btn" onclick="window.location.href='Reportes.html'">
-                        <i data-lucide="check-square"></i>
-                        <span>Reportes</span>
-                    </button>
-                </div>
-            </div>
-        </div>
+        </footer>
     </main>
 
-    <!-- Footer Fijo -->
-    <footer class="app-footer">
-        <div class="footer-container">
-            <a href="login.html" class="logout-btn"><i data-lucide="log-out"></i> Cerrar Sesión</a>
-            <span class="footer-copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</span>
-            <div class="footer-links">
-                <a href="#">Términos</a>
-                <a href="#">Privacidad</a>
-                <a href="#">Soporte</a>
-            </div>
-        </div>
-    </footer>
-
     <script>
+        // Inicializar los iconos de Lucide
         lucide.createIcons();
+
+        // Seleccionar el formulario de login
+        const loginForm = document.querySelector('.login-form');
+
+        loginForm.addEventListener('submit', function(event) {
+            // Evita que la página se recargue automáticamente
+            event.preventDefault();
+
+            // Obtener los valores ingresados (opcional, por si quieres validar algo en el futuro)
+            const usuario = document.getElementById('username').value;
+            const contrasena = document.getElementById('password').value;
+
+            // Redirigir a la página del Dashboard
+            window.location.href = "dashboard.html";
+        });
     </script>
 </body>
 </html>

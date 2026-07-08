@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link class="cssdeck" rel="stylesheet" href="Styles/HistorialMedico.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
     <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
 
@@ -18,7 +20,7 @@
             </div>
         </div>
         <nav class="nav-center">
-            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
             <a href="pacientes.html" class="nav-item active"><i data-lucide="users"></i> Pacientes</a>
             <a href="Agenda.html" class="nav-item"><i data-lucide="calendar"></i> Agenda</a>
             <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
@@ -38,7 +40,8 @@
                         <span class="username">Admin Usuario</span>
                         <span class="user-role">Administrador</span>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                        alt="Avatar" class="avatar">
                     <i data-lucide="chevron-down" class="dropdown-icon"></i>
                 </label>
                 <div class="dropdown-menu">
@@ -72,7 +75,7 @@
     </header>
 
     <main class="page-container">
-        
+
         <section class="page-header">
             <div class="header-title">
                 <h1>Historial Médico</h1>
@@ -85,9 +88,9 @@
         </section>
 
         <div class="history-layout-grid">
-            
+
             <div class="timeline-column">
-                
+
                 <div class="filter-search-bar">
                     <div class="filter-tabs">
                         <button class="tab-btn active">Todo</button>
@@ -102,7 +105,7 @@
                 </div>
 
                 <div class="timeline-container">
-                    
+
                     <div class="timeline-item">
                         <div class="timeline-icon"><i data-lucide="stethoscope"></i></div>
                         <div class="timeline-content-card">
@@ -181,7 +184,7 @@
             </div>
 
             <div class="sidebar-column">
-                
+
                 <div class="sidebar-card patient-summary-card">
                     <div class="patient-header">
                         <div class="avatar-box"><i data-lucide="user"></i></div>
@@ -242,7 +245,7 @@
         </div>
 
         <footer class="main-footer">
-            <a href="Login.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
+            <a href="index.html" class="logout-link"><i data-lucide="log-out"></i> Cerrar Sesión</a>
             <p class="copyright">© 2026 Fisio Nueva Vida. Todos los derechos reservados.</p>
             <div class="footer-policies">
                 <a href="#">Términos</a>
@@ -259,14 +262,14 @@
 
         // LÓGICA DE CAPTURA DINÁMICA DE PARÁMETROS
         const urlParams = new URLSearchParams(window.location.search);
-        
+
         if (urlParams.has('nombre')) {
             const nombre = urlParams.get('nombre');
             const id = urlParams.get('id');
             const edad = urlParams.get('edad');
             const sangre = urlParams.get('sangre');
             const cita = urlParams.get('cita') || 'No asignada';
-            
+
             const alergias = urlParams.get('alergias') ? urlParams.get('alergias').split(',') : ['Ninguna'];
             const condiciones = urlParams.get('condiciones') ? urlParams.get('condiciones').split(',') : ['Ninguna registrada'];
 
@@ -296,4 +299,5 @@
         }
     </script>
 </body>
+
 </html>
