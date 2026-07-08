@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="Styles/RegistrarCita.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
     <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox">
 
@@ -18,7 +20,7 @@
             </div>
         </div>
         <nav class="nav-center">
-            <a href="Index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
             <a href="pacientes.html" class="nav-item"><i data-lucide="users"></i> Pacientes</a>
             <a href="Agenda.html" class="nav-item active"><i data-lucide="calendar"></i> Agenda</a>
             <a href="Fisioterapeutas.html" class="nav-item"><i data-lucide="user-cog"></i> Fisioterapeutas</a>
@@ -38,7 +40,8 @@
                         <span class="username">Admin Usuario</span>
                         <span class="user-role">Administrador</span>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                        alt="Avatar" class="avatar">
                     <i data-lucide="chevron-down" class="dropdown-icon"></i>
                 </label>
                 <div class="dropdown-menu">
@@ -72,7 +75,7 @@
     </header>
 
     <main class="page-container">
-        
+
         <section class="page-header">
             <div class="header-title">
                 <h1>Nueva Cita Médica</h1>
@@ -88,17 +91,18 @@
         </section>
 
         <div class="form-layout-grid">
-            
+
             <div class="form-main-column">
                 <form id="form-cita-completo" class="form-card">
-                    
+
                     <div class="form-section-title"><i data-lucide="user"></i> 1. Información del Paciente</div>
                     <div class="form-grid-4">
                         <div class="form-group span-2">
                             <label>Buscar Paciente Registrado *</label>
                             <div class="input-icon-wrapper">
                                 <i data-lucide="search"></i>
-                                <input type="text" placeholder="Escriba nombre, apellidos o DNI..." value="Carlos Mendoza Rabanal">
+                                <input type="text" placeholder="Escriba nombre, apellidos o DNI..."
+                                    value="Carlos Mendoza Rabanal">
                             </div>
                         </div>
                         <div class="form-group">
@@ -114,11 +118,13 @@
                     <hr class="divider">
 
                     <div class="form-section-title"><i data-lucide="clock"></i> 2. Programación de la Sesión</div>
-                    
+
                     <div class="conflict-alert-box">
                         <i data-lucide="alert-circle" class="alert-icon"></i>
                         <div class="alert-text">
-                            <strong>Alerta de Cruce de Horario:</strong> El Dr. Marco Valdivia se encuentra asignado a una sesión de <em>Rehabilitación Lumbar</em> con la paciente Flor de Liz de 08:00 a 09:00 en el Cubículo 02. Por favor, verifique el horario sugerido o cambie de ambiente/terapeuta.
+                            <strong>Alerta de Cruce de Horario:</strong> El Dr. Marco Valdivia se encuentra asignado a
+                            una sesión de <em>Rehabilitación Lumbar</em> con la paciente Flor de Liz de 08:00 a 09:00 en
+                            el Cubículo 02. Por favor, verifique el horario sugerido o cambie de ambiente/terapeuta.
                         </div>
                     </div>
 
@@ -181,7 +187,8 @@
 
                     <hr class="divider">
 
-                    <div class="form-section-title"><i data-lucide="stethosocpe"></i> 3. Especificaciones del Tratamiento</div>
+                    <div class="form-section-title"><i data-lucide="stethosocpe"></i> 3. Especificaciones del
+                        Tratamiento</div>
                     <div class="form-grid-3">
                         <div class="form-group">
                             <label>Tipo de Servicio / Especialidad *</label>
@@ -194,7 +201,8 @@
                         </div>
                         <div class="form-group">
                             <label>Zona Corporal a Tratar *</label>
-                            <input type="text" placeholder="Ej. Rodilla Derecha, Columna Lumbar..." value="Rodilla Izquierda (Tendón Rotuliano)">
+                            <input type="text" placeholder="Ej. Rodilla Derecha, Columna Lumbar..."
+                                value="Rodilla Izquierda (Tendón Rotuliano)">
                         </div>
                         <div class="form-group">
                             <label>Control de Sesiones</label>
@@ -209,7 +217,8 @@
 
                     <div class="form-group">
                         <label>Notas Clínicas / Observaciones de Admisión</label>
-                        <textarea placeholder="Ingrese síntomas principales, limitaciones de movilidad o indicaciones específicas proporcionadas por el médico tratante...">Paciente refiere dolor agudo (7/10 EVA) al realizar flexión forzada. Tercera sesión tras cirugía artroscópica. Evitar cargas excesivas en cadenas cinéticas abiertas.</textarea>
+                        <textarea
+                            placeholder="Ingrese síntomas principales, limitaciones de movilidad o indicaciones específicas proporcionadas por el médico tratante...">Paciente refiere dolor agudo (7/10 EVA) al realizar flexión forzada. Tercera sesión tras cirugía artroscópica. Evitar cargas excesivas en cadenas cinéticas abiertas.</textarea>
                     </div>
 
                     <hr class="divider">
@@ -248,17 +257,20 @@
                         <label class="custom-checkbox">
                             <input type="checkbox" checked>
                             <span class="checkmark"></span>
-                            <span class="label-text">Enviar recordatorio automatizado vía WhatsApp Web de la clínica (24h antes)</span>
+                            <span class="label-text">Enviar recordatorio automatizado vía WhatsApp Web de la clínica
+                                (24h antes)</span>
                         </label>
                         <label class="custom-checkbox">
                             <input type="checkbox" checked>
                             <span class="checkmark"></span>
-                            <span class="label-text">Notificar automáticamente al correo electrónico del fisioterapeuta asignado</span>
+                            <span class="label-text">Notificar automáticamente al correo electrónico del fisioterapeuta
+                                asignado</span>
                         </label>
                         <label class="custom-checkbox">
                             <input type="checkbox">
                             <span class="checkmark"></span>
-                            <span class="label-text">Generar y emitir comprobante electrónico (Boleta/Factura) al guardar</span>
+                            <span class="label-text">Generar y emitir comprobante electrónico (Boleta/Factura) al
+                                guardar</span>
                         </label>
                     </div>
 
@@ -274,14 +286,15 @@
                 </form>
 
                 <div class="form-submit-actions">
-                    <button type="button" class="btn-action-secondary" onclick="window.location.href='agenda.html'">Descartar Cambios</button>
+                    <button type="button" class="btn-action-secondary"
+                        onclick="window.location.href='agenda.html'">Descartar Cambios</button>
 
                     <button type="submit" form="form-cita-completo" class="btn-action-primary">Confirmar</button>
                 </div>
             </div>
 
             <div class="form-sidebar-column">
-                
+
                 <div class="sidebar-widget-card">
                     <div class="widget-header">
                         <span class="widget-title"><i data-lucide="calendar"></i> Calendario de Control</span>
@@ -292,12 +305,43 @@
                         </div>
                     </div>
                     <div class="mini-calendar-layout">
-                        <div class="calendar-day-head">L</div><div class="calendar-day-head">M</div><div class="calendar-day-head">M</div><div class="calendar-day-head">J</div><div class="calendar-day-head">V</div><div class="calendar-day-head">S</div><div class="calendar-day-head">D</div>
-                        <div class="day-disabled">1</div><div class="day-disabled">2</div><div class="day-disabled">3</div><div>4</div><div>5</div><div>6</div><div>7</div>
-                        <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
-                        <div>15</div><div>16</div><div class="day-active-selected">17</div><div>18</div><div>19</div><div>20</div><div>21</div>
-                        <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div>
-                        <div>29</div><div>30</div>
+                        <div class="calendar-day-head">L</div>
+                        <div class="calendar-day-head">M</div>
+                        <div class="calendar-day-head">M</div>
+                        <div class="calendar-day-head">J</div>
+                        <div class="calendar-day-head">V</div>
+                        <div class="calendar-day-head">S</div>
+                        <div class="calendar-day-head">D</div>
+                        <div class="day-disabled">1</div>
+                        <div class="day-disabled">2</div>
+                        <div class="day-disabled">3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div class="day-active-selected">17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+                        <div>21</div>
+                        <div>22</div>
+                        <div>23</div>
+                        <div>24</div>
+                        <div>25</div>
+                        <div>26</div>
+                        <div>27</div>
+                        <div>28</div>
+                        <div>29</div>
+                        <div>30</div>
                     </div>
                 </div>
 
@@ -331,7 +375,8 @@
                         <span class="widget-title"><i data-lucide="folder-heart"></i> Resumen Clínico</span>
                     </div>
                     <div class="patient-quick-profile">
-                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80" alt="Carlos Mendoza" class="patient-avatar">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80"
+                            alt="Carlos Mendoza" class="patient-avatar">
                         <div class="patient-meta">
                             <h3>Carlos Mendoza R.</h3>
                             <span>Código: PAC-2026-0412</span>
@@ -341,13 +386,15 @@
                         <li><span>Diagnóstico Base:</span> <strong>Esguince de rodilla G2</strong></li>
                         <li><span>Última Atención:</span> <strong>12 de Mayo, 2026</strong></li>
                         <li><span>Asistencia General:</span> <strong>92% de efectividad</strong></li>
-                        <li><span>Deuda Acumulada:</span> <strong style="color: #16a34a;">S/. 0.00 (Al día)</strong></li>
+                        <li><span>Deuda Acumulada:</span> <strong style="color: #16a34a;">S/. 0.00 (Al día)</strong>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="security-privacy-note">
                     <i data-lucide="shield-alert"></i>
-                    <p>Toda la información introducida queda registrada bajo auditoría clínica de seguridad de datos de salud de Fisio Nueva Vida.</p>
+                    <p>Toda la información introducida queda registrada bajo auditoría clínica de seguridad de datos de
+                        salud de Fisio Nueva Vida.</p>
                 </div>
 
             </div>
@@ -370,4 +417,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
